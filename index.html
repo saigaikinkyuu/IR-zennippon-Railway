@@ -178,6 +178,10 @@
   } else if (firstChar === '3') {
     kindText = 'C';
   }
+      
+      var hiddenContent = document.getElementById('hidden-content');
+      document.getElementById('passwordInput').style.display = 'none';
+        hiddenContent.style.display = 'block';
 
   kindOutput.textContent = kindText;
 }
@@ -459,12 +463,11 @@ button4.disabled = false;
     // パスワードの送信ボタンがクリックされた時の処理
     document.getElementById('submit-button').addEventListener('click', function() {
       var passwordInput = document.getElementById('password-input').value;
-      var hiddenContent = document.getElementById('hidden-content');
+      
 
       if (passwordInput === '482D') {
         // パスワードが一致したら非表示のコンテンツを表示する
-        document.getElementById('password-form').style.display = 'none';
-        hiddenContent.style.display = 'block';
+        
       } else {
         alert('列車番号に誤りがあります');
       }
