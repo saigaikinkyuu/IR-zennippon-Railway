@@ -451,14 +451,19 @@ button4.disabled = false;
   } else if (firstChar === '3') {
     kindText = 'C';
   }
-      
-      var hiddenContent = document.getElementById('hidden-content');
-      document.getElementById('passwordInput').style.display = 'none';
-        hiddenContent.style.display = 'block';
 
   kindOutput.textContent = kindText;
 }
-    });
+
+function submitForm() {
+  var passwordInput = document.getElementById('passwordInput');
+  var firstChar = passwordInput.value.charAt(0);
+
+  // フォーム送信などの処理を行う
+  // ここではアラートを表示してみます
+  alert('送信ボタンが押されました。1文字目: ' + firstChar);
+}
+
   </script>
   
 </body>
