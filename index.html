@@ -453,7 +453,13 @@ button4.disabled = false;
   }
 
   kindOutput.textContent = kindText;
+      
+      var hiddenContent = document.getElementById('hidden-content');
+
+        document.getElementById('passwordInput').style.display = 'none';
+        hiddenContent.style.display = 'block';
 }
+    
 
 function submitForm() {
   var passwordInput = document.getElementById('passwordInput');
