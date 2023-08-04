@@ -164,30 +164,6 @@
     });
   </script>
   <script>
-    function updateKind() {
-  var passwordInput = document.getElementById('passwordInput');
-  var kindOutput = document.getElementById('kindOutput');
-
-  var firstChar = passwordInput.value.charAt(0).toLowerCase();
-  var kindText = '';
-
-  if (firstChar === '1') {
-    kindText = 'A';
-  } else if (firstChar === '2') {
-    kindText = 'B';
-  } else if (firstChar === '3') {
-    kindText = 'C';
-  }
-      
-      var hiddenContent = document.getElementById('hidden-content');
-      document.getElementById('passwordInput').style.display = 'none';
-        hiddenContent.style.display = 'block';
-
-  kindOutput.textContent = kindText;
-}
-
-  </script>
-  <script>
     var button1 = document.getElementById('button2');
     var audio = new Audio('button audio.mp3');
 
@@ -460,17 +436,28 @@ button4.disabled = false;
       }, 10000); // 10秒後にパスワード入力フォームを表示する
     });
 
-    // パスワードの送信ボタンがクリックされた時の処理
-    document.getElementById('submit-button').addEventListener('click', function() {
-      var passwordInput = document.getElementById('password-input').value;
-      
+    
+    function updateKind() {
+  var passwordInput = document.getElementById('passwordInput');
+  var kindOutput = document.getElementById('kindOutput');
 
-      if (passwordInput === '482D') {
-        // パスワードが一致したら非表示のコンテンツを表示する
-        
-      } else {
-        alert('列車番号に誤りがあります');
-      }
+  var firstChar = passwordInput.value.charAt(0).toLowerCase();
+  var kindText = '';
+
+  if (firstChar === '1') {
+    kindText = 'A';
+  } else if (firstChar === '2') {
+    kindText = 'B';
+  } else if (firstChar === '3') {
+    kindText = 'C';
+  }
+      
+      var hiddenContent = document.getElementById('hidden-content');
+      document.getElementById('passwordInput').style.display = 'none';
+        hiddenContent.style.display = 'block';
+
+  kindOutput.textContent = kindText;
+}
     });
   </script>
   
