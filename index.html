@@ -454,10 +454,6 @@ button4.disabled = false;
 
   kindOutput.textContent = kindText;
       
-      var hiddenContent = document.getElementById('hidden-content');
-
-        document.getElementById('passwordInput').style.display = 'none';
-        hiddenContent.style.display = 'block';
 }
     
 
@@ -468,6 +464,11 @@ function submitForm() {
   // フォーム送信などの処理を行う
   // ここではアラートを表示してみます
   alert('送信ボタンが押されました。1文字目: ' + firstChar);
+  
+      var hiddenContent = document.getElementById('hidden-content');
+
+        document.getElementById('passwordInput').style.display = 'none';
+        hiddenContent.style.display = 'block';
 }
 
   </script>
