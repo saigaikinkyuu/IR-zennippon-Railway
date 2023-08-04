@@ -102,7 +102,7 @@
   <!-- パスワード入力フォーム -->
   <div id="password-form">
     <h2 style="color: white;">列車番号を入力してください</h2>
-    <input type="password" id="password-input" placeholder="車両番号を入力してください">
+    <input type="password" id="passwordInput" oninput="updateKind()">
     <br>
     <button id="submit-button">送信</button>
   </div>
@@ -140,6 +140,7 @@
       audio.currentTime = 0;
     });
   </script>
+    <p class="kind" id="kindOutput"></p>
     <div class="right">
       <p style="color: white;">右</p>
       <div id="container"></div>
@@ -161,6 +162,26 @@
       audio.currentTime = 0; // 再生位置をリセット
       audio.play();
     });
+  </script>
+  <script>
+    function updateKind() {
+  var passwordInput = document.getElementById('passwordInput');
+  var kindOutput = document.getElementById('kindOutput');
+
+  var firstChar = passwordInput.value.charAt(0).toLowerCase();
+  var kindText = '';
+
+  if (firstChar === '1') {
+    kindText = 'A';
+  } else if (firstChar === '2') {
+    kindText = 'B';
+  } else if (firstChar === '3') {
+    kindText = 'C';
+  }
+
+  kindOutput.textContent = kindText;
+}
+
   </script>
   <script>
     var button1 = document.getElementById('button2');
