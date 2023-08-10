@@ -132,6 +132,20 @@
     <button id="button5" onclick="playAudio('audio4')" style="width: 40px; height: 40px; background-color: red;">左閉</button>
     <p class="kind" id="kindOutput"></p>
     <button id="longPressButton">ボタンを長押しして音を再生</button>
+      <p id="StimeOutput"></p>
+      <p id="SDtimeOutput"></p>
+      <p id="TDtimeOutput"></p>
+      <p id="FDtimeOutput"></p>
+      <p id="FIDtimeOutput"></p>
+      <p id="SIDtimeOutput"></p>
+      <p id="SEDtimeOutput"></p>
+      <p id="EDtimeOutput"></p>
+      <p id="NDtimeOutput"></p>
+      <p id="TEDtimeOutput"></p>
+      <p id="ELDtimeOutput"></p>
+      <p id="TWDtimeOutput"></p>
+      <p id="TtDtimeOutput"></p>
+      <p id="FItDtimeOutput"></p>
     </div>
   
   <script>
@@ -459,6 +473,20 @@ button4.disabled = false;
   var kindOutput = document.getElementById('kindOutput');
   var StimeOutput = document.getElementById('StimeOutput');
   var UDOutput = document.getElementById('UDOutput');
+      
+  var SDtimeOutput = document.getElementById('SDtimeOutput');
+  var TDtimeOutput = document.getElementById('TDtimeOutput');
+  var FDtimeOutput = document.getElementById('FDtimeOutput');
+  var FIDtimeOutput = document.getElementById('FIDtimeOutput');
+  var SIDtimeOutput = document.getElementById('SIDtimeOutput');
+  var SEDtimeOutput = document.getElementById('SEDtimeOutput');
+  var EDtimeOutput = document.getElementById('EDtimeOutput');
+  var NDtimeOutput = document.getElementById('NDtimeOutput');
+  var TEDtimeOutput = document.getElementById('TEDtimeOutput');
+  var ELDtimeOutput = document.getElementById('ELDtimeOutput');
+  var TWDtimeOutput = document.getElementById('TWDtimeOutput');
+  var TtDtimeOutput = document.getElementById('TtDtimeOutput');
+  var FItDtimeOutput = document.getElementById('FItDtimeOutput');
 
   var FstChar = passwordInput.value.charAt(0).toLowerCase();
   var SndChar = passwordInput.value.charAt(1).toLowerCase();
@@ -571,42 +599,42 @@ if (FSChar === '01' || FSChar === '03' || FSChar === '05' || FSChar === '07' || 
         }if (NTChar <= '02' && !FstChar === 'S') {
           //海島
       TDtime.setMinutes(SDtime.getMinutes() + 5);
-        }if (NTChar <= '03' && FstChar === 'S') {
+        }if (NTChar <= '03' && !FstChar === 'S' && !FstChar === 'T') {
           //海の山新都心
-      FDtime.setMinutes(TDtime.getMinutes() + 5);
-        }if (NTChar <= '04' && !FstChar === 'S') {
+      FDtime.setMinutes(TDtime.getMinutes() + 8);
+        }if (NTChar <= '04' && !FstChar === 'S' && !FstChar === 'T') {
           //神代
-      FIDtime.setMinutes(FDtime.getMinutes() + 5);
-        }if (NTChar <= '05' && !FstChar === 'S') {
+      FIDtime.setMinutes(FDtime.getMinutes() + 7);
+        }if (NTChar <= '05' && FstChar === 'L') {
           //旧海
-      SIDtime.setMinutes(FIDtime.getMinutes() + 5);
-        }if (NTChar <= '06' && !FstChar === 'S') {
+      SIDtime.setMinutes(FIDtime.getMinutes() + 10);
+        }if (NTChar <= '06' && FstChar === 'L') {
           //新海
-      SEDtime.setMinutes(SIDtime.getMinutes() + 5);
-        }if (NTChar <= '07' && !FstChar === 'S') {
+      SEDtime.setMinutes(SIDtime.getMinutes() + 9);
+        }if (NTChar <= '07' && FstChar === 'L') {
           //海道
-      EDtime.setMinutes(SEDtime.getMinutes() + 5);
-        }if (NTChar <= '08' && !FstChar === 'S') {
+      EDtime.setMinutes(SEDtime.getMinutes() + 8);
+        }if (NTChar <= '08') {
           //船港
-      NDtime.setMinutes(EDtime.getMinutes() + 5);
-        }if (NTChar <= '09' && !FstChar === 'S') {
+      NDtime.setMinutes(EDtime.getMinutes() + 12);
+        }if (NTChar <= '09' && !FstChar === 'S' && !FstChar ==='T') {
           //先十
-      TEDtime.setMinutes(NDtime.getMinutes() + 5);
-        }if (NTChar <= '10' && !FstChar === 'S') {
+      TEDtime.setMinutes(NDtime.getMinutes() + 9);
+        }if (NTChar <= '10' && !FstChar === 'T') {
           //鳥の島
       ELDtime.setMinutes(TEDtime.getMinutes() + 5);
-        }if (NTChar <= '11' && !FstChar === 'S') {
+        }if (NTChar <= '11' && FstChar === 'L') {
           //北鳥
-      TWDtime.setMinutes(ELDtime.getMinutes() + 5);
+      TWDtime.setMinutes(ELDtime.getMinutes() + 7);
         }if (NTChar <= '12' && !FstChar === 'S') {
           //上新庄
-      TtDtime.setMinutes(TWDtime.getMinutes() + 5);
-        }if (NTChar <= '13' && !FstChar === 'S') {
+      TtDtime.setMinutes(TWDtime.getMinutes() + 11);
+        }if (NTChar <= '13') {
           //海洋
-      FtDtime.setMinutes(TtDtime.getMinutes() + 5);
-        }if (NTChar <= '14' && !FstChar === 'S') {
+      FtDtime.setMinutes(TtDtime.getMinutes() + 11);
+        }if (NTChar <= '14') {
           //宮吉
-      FItDtime.setMinutes(FtDtime.getMinutes() + 5);
+      FItDtime.setMinutes(FtDtime.getMinutes() + 9);
         }
       }
   SDtime.setMinutes(Smin.getMinutes() + 3); // +3分
@@ -615,6 +643,20 @@ if (FSChar === '01' || FSChar === '03' || FSChar === '05' || FSChar === '07' || 
   kindOutput.textContent = kindText;
   UDOutput.textContent = UDText;
   StimeOutput.textContent = ShourText + ':' + SminText;
+      
+  SDtimeOutput.textContent = ShourText + ':' + SDtime;
+  TDtimeOutput.textContent = ShourText + ':' + TDtime;
+  FDtimeOutput.textContent = ShourText + ':' + FDtime;
+  FIDtimeOutput.textContent = ShourText + ':' + FIDtime;
+  SIDtimeOutput.textContent = ShourText + ':' + SIDtime;
+  SEDtimeOutput.textContent = ShourText + ':' + SEDtime;
+  EDtimeOutput.textContent = ShourText + ':' + EDtime;
+  NDtimeOutput.textContent = ShourText + ':' + NDtime;
+  TEDtimeOutput.textContent = ShourText + ':' + TEDtime;
+  ELDtimeOutput.textContent = ShourText + ':' + ELDtime;
+  TWDtimeOutput.textContent = ShourText + ':' + TWDtime;
+  TtDtimeOutput.textContent = ShourText + ':' + TtDtime;
+  FItDtimeOutput.textContent = ShourText + ':' + FItDtime;
       
 }
     
