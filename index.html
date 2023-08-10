@@ -564,9 +564,49 @@ if (FSChar === '01' || FSChar === '03' || FSChar === '05' || FSChar === '07' || 
     SminText = Math.ceil(55 + SEChar * 3.8)
   }
 }
-      if (FstChar === 'L' && UDText === '下り') {
+      if (UDText === '下り') {
         if (NTChar === '01') {
+          //やもかいり
       SDtime.setMinutes(Smin.getMinutes() + 6);
+        }if (NTChar <= '02' && !FstChar === 'S') {
+          //海島
+      TDtime.setMinutes(SDtime.getMinutes() + 5);
+        }if (NTChar <= '03' && FstChar === 'S') {
+          //海の山新都心
+      FDtime.setMinutes(TDtime.getMinutes() + 5);
+        }if (NTChar <= '04' && !FstChar === 'S') {
+          //神代
+      FIDtime.setMinutes(FDtime.getMinutes() + 5);
+        }if (NTChar <= '05' && !FstChar === 'S') {
+          //旧海
+      SIDtime.setMinutes(FIDtime.getMinutes() + 5);
+        }if (NTChar <= '06' && !FstChar === 'S') {
+          //新海
+      SEDtime.setMinutes(SIDtime.getMinutes() + 5);
+        }if (NTChar <= '07' && !FstChar === 'S') {
+          //海道
+      EDtime.setMinutes(SEDtime.getMinutes() + 5);
+        }if (NTChar <= '08' && !FstChar === 'S') {
+          //船港
+      NDtime.setMinutes(EDtime.getMinutes() + 5);
+        }if (NTChar <= '09' && !FstChar === 'S') {
+          //先十
+      TEDtime.setMinutes(NDtime.getMinutes() + 5);
+        }if (NTChar <= '10' && !FstChar === 'S') {
+          //鳥の島
+      ELDtime.setMinutes(TEDtime.getMinutes() + 5);
+        }if (NTChar <= '11' && !FstChar === 'S') {
+          //北鳥
+      TWDtime.setMinutes(ELDtime.getMinutes() + 5);
+        }if (NTChar <= '12' && !FstChar === 'S') {
+          //上新庄
+      TtDtime.setMinutes(TWDtime.getMinutes() + 5);
+        }if (NTChar <= '13' && !FstChar === 'S') {
+          //海洋
+      FtDtime.setMinutes(TtDtime.getMinutes() + 5);
+        }if (NTChar <= '14' && !FstChar === 'S') {
+          //宮吉
+      FItDtime.setMinutes(FtDtime.getMinutes() + 5);
         }
       }
   SDtime.setMinutes(Smin.getMinutes() + 3); // +3分
