@@ -184,47 +184,50 @@
   <audio id="audio1" src="ドアチャイム.mp3"></audio>
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
-  <audio id="audio4" src="ドアチャイム.mp3"></audio><table id="timeTable">
+  <audio id="audio4" src="ドアチャイム.mp3"></audio>
+<table id="resultTable">
+  <thead>
     <tr>
-      <td>1行目の時間:</td>
-      <td id="row1Time"></td>
+      <th>時間</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-      <td>2行目の時間:</td>
-      <td id="row2Time"></td>
+      <td id="timeCell"></td>
     </tr>
-  </table>
-  
-  <script>
-    function submitForm() {
-      const passwordInput = document.getElementById('passwordInput');
-      const passwordValue = passwordInput.value;
+  </tbody>
+</table>
 
-      if (passwordValue.length >= 8) {
-        const hour = passwordValue.substr(4, 2);
-        const minute = passwordValue.substr(6, 2);
+<script>
+  function submitForm() {
+    const passwordInput = document.getElementById('passwordInput');
+    const timeCell = document.getElementById('timeCell');
+    const passwordValue = passwordInput.value;
 
-        // 1行目に時刻を表示
-        const row1TimeCell = document.getElementById('row1Time');
-        row1TimeCell.textContent = hour + ':' + minute;
+    if (passwordValue.length >= 8) {
+      const hours = passwordValue.substring(4, 6);
+      const minutes = passwordValue.substring(6, 8);
+      const currentTime = new Date();
+      currentTime.setHours(parseInt(hours));
+      currentTime.setMinutes(parseInt(minutes));
+      
+      const formattedTime = currentTime.getHours() + ':' + (currentTime.getMinutes() < 10 ? '0' : '') + currentTime.getMinutes();
+      timeCell.textContent = formattedTime;
 
-        // 時間に3分足した時刻を計算
-        const addedMinutes = parseInt(minute) + 3;
-        const addedHour = parseInt(hour) + Math.floor(addedMinutes / 60);
-        const adjustedMinute = addedMinutes % 60;
-
-        // 2行目に足した時刻を表示
-        const row2TimeCell = document.getElementById('row2Time');
-        row2TimeCell.textContent = (addedHour < 10 ? '0' : '') + addedHour + ':' + (adjustedMinute < 10 ? '0' : '') + adjustedMinute;
-      } else {
-        const row1TimeCell = document.getElementById('row1Time');
-        row1TimeCell.textContent = '';
-
-        const row2TimeCell = document.getElementById('row2Time');
-        row2TimeCell.textContent = '';
-      }
+      // 次の行に3分足した時間を表示
+      const nextTime = new Date(currentTime.getTime() + 3 * 60000); // 3分をミリ秒に変換
+      const nextFormattedTime = nextTime.getHours() + ':' + (nextTime.getMinutes() < 10 ? '0' : '') + nextTime.getMinutes();
+      const newRow = document.createElement('tr');
+      const newCell = document.createElement('td');
+      newCell.textContent = nextFormattedTime;
+      newRow.appendChild(newCell);
+      document.getElementById('resultTable').getElementsByTagName('tbody')[0].appendChild(newRow);
+    } else {
+      timeCell.textContent = '';
     }
-  </script>
+  }
+</script>
+
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
