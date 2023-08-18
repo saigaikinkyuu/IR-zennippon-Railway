@@ -184,7 +184,47 @@
   <audio id="audio1" src="ドアチャイム.mp3"></audio>
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
-  <audio id="audio4" src="ドアチャイム.mp3"></audio>
+  <audio id="audio4" src="ドアチャイム.mp3"></audio><table id="timeTable">
+    <tr>
+      <td>1行目の時間:</td>
+      <td id="row1Time"></td>
+    </tr>
+    <tr>
+      <td>2行目の時間:</td>
+      <td id="row2Time"></td>
+    </tr>
+  </table>
+  
+  <script>
+    function updateKind() {
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordValue = passwordInput.value;
+
+      if (passwordValue.length >= 8) {
+        const hour = passwordValue.substr(4, 2);
+        const minute = passwordValue.substr(6, 2);
+
+        // 1行目に時刻を表示
+        const row1TimeCell = document.getElementById('row1Time');
+        row1TimeCell.textContent = hour + ':' + minute;
+
+        // 時間に3分足した時刻を計算
+        const addedMinutes = parseInt(minute) + 3;
+        const addedHour = parseInt(hour) + Math.floor(addedMinutes / 60);
+        const adjustedMinute = addedMinutes % 60;
+
+        // 2行目に足した時刻を表示
+        const row2TimeCell = document.getElementById('row2Time');
+        row2TimeCell.textContent = (addedHour < 10 ? '0' : '') + addedHour + ':' + (adjustedMinute < 10 ? '0' : '') + adjustedMinute;
+      } else {
+        const row1TimeCell = document.getElementById('row1Time');
+        row1TimeCell.textContent = '';
+
+        const row2TimeCell = document.getElementById('row2Time');
+        row2TimeCell.textContent = '';
+      }
+    }
+  </script>
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
