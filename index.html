@@ -207,19 +207,33 @@
       if (passwordValue.length >= 8) {
         const hour = passwordValue.substring(4, 6);
         const minute = passwordValue.substring(6, 8);
+        let minute
+        if (minute === '01') {
+          minute = '00';
+        }else if (minute === '03') {
+          minute = '10';
+        }else if (minute === '05') {
+          minute = '20';
+        }else if (minute === '07') {
+          minute = '30';
+        }else if (minute === '09') {
+          minute = '40';
+        }else if (minute === '11') {
+          minute = '50';
+        }
 
         let currentTime = new Date();
         let currentTime2 = new Date();
         currentTime.setHours(parseInt(hour));
-        currentTime.setMinutes(parseInt(minute));
+        currentTime.setMinutes(parseInt(minutet));
         currentTime2.setHours(parseInt(hour));
-        currentTime2.setMinutes(parseInt(minute));
+        currentTime2.setMinutes(parseInt(minutet));
 
         // 表をクリア
         tableBody.innerHTML = '';
 
         // 表を再構築
-        for (let i = 0; i < 14; i++) {
+        for (let i = 0; i < 16; i++) {
           const newRow = tableBody.insertRow();
           const cell1 = newRow.insertCell(0);
           const cell2 = newRow.insertCell(1);
@@ -227,13 +241,45 @@
 
           const timeString = formatTime(currentTime);
           const timeString2 = formatTime(currentTime2);
-          cell1.textContent = (i + 1) + '行目';
+          let staname;
+          if (i === 0){
+            staname = '品川'
+          }else if (i === 1){
+            staname = 'ヤリ'
+          }else if (i === 2){
+            staname = '海島'
+          }else if (i === 3){
+            staname = '海新'
+          }else if (i === 4){
+            staname = '神代'
+          }else if (i === 5){
+            staname = '旧海'
+          }else if (i === 6){
+            staname = '新海'
+          }else if (i === 7){
+            staname = '海道'
+          }else if (i === 8){
+            staname = '船港'
+          }else if (i === 9){
+            staname = '先十'
+          }else if (i === 10){
+            staname = '鳥島'
+          }else if (i === 11){
+            staname = '北鳥'
+          }else if (i === 12){
+            staname = '上庄'
+          }else if (i === 13){
+            staname = '海洋'
+          }else if (i === 14){
+            staname = '宮吉'
+          }
+          cell1.textContent = staname ;
           cell2.textContent = timeString;
           cell3.textContent = timeString2;
 
           // 時間の計算
           if (i === 0) {
-            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+            currentTime.setMinutes(currentTime2.getMinutes() + 5);
             currentTime2.setMinutes(currentTime.getMinutes() + 3);
           } else if (i === 1) {
             currentTime.setMinutes(currentTime2.getMinutes() + 9);
@@ -269,10 +315,13 @@
             currentTime.setMinutes(currentTime2.getMinutes() + 8);
             currentTime2.setMinutes(currentTime.getMinutes() + 4);
           } else if (i === 12) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 13);
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 13) {
             currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 14) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 13);
             currentTime2.setMinutes(currentTime.getMinutes());
           }
         }
