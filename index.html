@@ -94,13 +94,13 @@
 </head>
 <body>
   <!-- ロード画面 -->
-  <div id="loader">
+  <div id="loader" style="display: none;">
     <div class="loader-icon"></div>
     <img src="./IR全日本鉄道透過版(ロゴ).png">
   </div>
 
   <!-- パスワード入力フォーム -->
-  <div id="password-form">
+  <div id="password-form" style="display: block;">
     <h2 style="color: white;">列車番号を入力してください</h2>
     <input type="password" id="passwordInput" oninput="updateKind()">
     <br>
@@ -108,7 +108,7 @@
   </div>
 
   <!-- 非表示のコンテンツ -->
-  <div id="hidden-content">
+  <div id="hidden-content" style="display: block;">
     <div style="width: 100%; display: flex; background-color: blue;">
       <div style="padding-right: 30px; height: 30px;　border: solid 3px; color: white;">
       <a href="#" style="color: white;">運行管理</a>
@@ -184,47 +184,53 @@
   <audio id="audio1" src="ドアチャイム.mp3"></audio>
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
-  <audio id="audio4" src="ドアチャイム.mp3"></audio><table id="resultTable">
-    <tr>
-      <th>行</th>
-      <th>結果</th>
-    </tr>
-  </table>
+  <audio id="audio4" src="ドアチャイム.mp3"></audio>
+      <table>
+  <tr>
+    <td id="tableCell1">1行目</td>
+    <td id="tableCell2"></td>
+  </tr>
+  <tr>
+    <td id="tableCell3">2行目</td>
+    <td id="tableCell4"></td>
+  </tr>
+  <tr>
+    <td id="tableCell5">3行目</td>
+    <td id="tableCell6"></td>
+  </tr>
+</table>
 
-  <script>
-    function submitForm() {
-      const passwordInput = document.getElementById('passwordInput');
-      const table = document.getElementById('resultTable');
+<script>
+  function submitForm() {
+    const passwordInput = document.getElementById('passwordInput').value;
+    const tableCell1 = document.getElementById('tableCell1');
+    const tableCell2 = document.getElementById('tableCell2');
+    const tableCell3 = document.getElementById('tableCell3');
+    const tableCell4 = document.getElementById('tableCell4');
+    const tableCell5 = document.getElementById('tableCell5');
+    const tableCell6 = document.getElementById('tableCell6');
 
-      if (passwordInput.value.length >= 8) {
-        table.innerHTML = ''; // テーブルをクリア
+    // パスワードの5桁目と6桁目を時、7桁目と8桁目を分として取得
+    const hour = passwordInput.substr(4, 2);
+    const minute = passwordInput.substr(6, 2);
 
-        const hour = passwordInput.value.substr(4, 2);
-        const minute = passwordInput.value.substr(6, 2);
+    // 1行目の更新
+    tableCell1.textContent = `1行目（時：${hour}、分：${minute}）`;
 
-        let currentHour = parseInt(hour, 10);
-        let currentMinute = parseInt(minute, 10);
+    // 2行目以降の更新
+    const interval = 3; // 分の間隔
+    const timeFormat = 'hh:mm'; // 時刻表示のフォーマット
 
-        for (let i = 1; i <= 12; i++) {
-          const newRow = table.insertRow();
-          const cell1 = newRow.insertCell(0);
-          const cell2 = newRow.insertCell(1);
+    const currentTime = new Date();
+    const nextTime = new Date(currentTime.getTime() + interval * 60000);
+    
+    const formattedNextTime = nextTime.toLocaleTimeString('ja-JP', { timeStyle: 'short' });
 
-          cell1.textContent = `${i}行目`;
-
-          if (i === 1) {
-            cell2.textContent = `${currentHour}時${currentMinute}分`;
-          } else {
-            currentMinute += (i % 2 === 0) ? i + 1 : i;
-            currentHour += Math.floor(currentMinute / 60);
-            currentMinute %= 60;
-
-            cell2.textContent = `${currentHour}時${currentMinute}分`;
-          }
-        }
-      }
-    }
-  </script>
+    tableCell2.textContent = `2行目（時：${formattedNextTime}、分：${minute}）`;
+    tableCell4.textContent = `4行目（時：${formattedNextTime}、分：${minute}）`;
+    tableCell6.textContent = `6行目（時：${formattedNextTime}、分：${minute}）`;
+  }
+</script>
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
