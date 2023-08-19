@@ -185,60 +185,61 @@
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
   <audio id="audio4" src="ドアチャイム.mp3"></audio>
-  <table id="timeTable">
+  <table border="1">
     <thead>
       <tr>
-        <th>行</th>
+        <th>行番号</th>
         <th>時間</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- ここに自動生成される行を追加 -->
+    <tbody id="tableBody">
+      <!-- 表の行はここに追加されます -->
     </tbody>
   </table>
 
   <script>
     function submitForm() {
       const passwordInput = document.getElementById('passwordInput');
+      const tableBody = document.getElementById('tableBody');
       const passwordValue = passwordInput.value;
 
       if (passwordValue.length >= 8) {
-        const hours = passwordValue.substr(4, 2);
-        const minutes = passwordValue.substr(6, 2);
+        const hour = passwordValue.substring(4, 6);
+        const minute = passwordValue.substring(6, 8);
 
-        // テーブルの tbody 要素を取得
-        const tableBody = document.querySelector('#timeTable tbody');
+        let currentTime = new Date();
+        currentTime.setHours(parseInt(hour));
+        currentTime.setMinutes(parseInt(minute));
 
-        // 既存のテーブル行を削除
-        while (tableBody.firstChild) {
-          tableBody.removeChild(tableBody.firstChild);
-        }
+        // 表をクリア
+        tableBody.innerHTML = '';
 
-        // 新しい行を作成して追加
-        for (let i = 0; i < 3; i++) {
+        // 表を再構築
+        for (let i = 0; i < 4; i++) {
           const newRow = tableBody.insertRow();
-
           const cell1 = newRow.insertCell(0);
-          cell1.textContent = i + 1;
-
           const cell2 = newRow.insertCell(1);
+
+          const timeString = formatTime(currentTime);
+          cell1.textContent = (i + 1) + '行目';
+          cell2.textContent = timeString;
+
+          // 時間の計算
           if (i === 0) {
-            cell2.textContent = `${hours}:${minutes}`;
-          } else {
-            const prevRowTime = cell2.parentElement.previousElementSibling.cells[1].textContent;
-            const prevHours = parseInt(prevRowTime.split(':')[0]);
-            const prevMinutes = parseInt(prevRowTime.split(':')[1]);
-
-            const nextHours = (i === 1) ? prevHours : prevHours + 1;
-            const nextMinutes = (i === 1) ? prevMinutes + 3 : prevMinutes + 4;
-
-            const formattedNextHours = String(nextHours).padStart(2, '0');
-            const formattedNextMinutes = String(nextMinutes).padStart(2, '0');
-
-            cell2.textContent = `${formattedNextHours}:${formattedNextMinutes}`;
+            currentTime.setMinutes(currentTime.getMinutes() + 3);
+          } else if (i === 1) {
+            currentTime.setMinutes(currentTime.getMinutes() + 4);
+          } else if (i === 2) {
+            currentTime.setMinutes(currentTime.getMinutes() + 7);
           }
         }
       }
+    }
+
+    function formatTime(date) {
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      return hours + ':' + minutes;
     }
   </script>
   <script>
