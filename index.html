@@ -207,6 +207,8 @@
       if (passwordValue.length >= 8) {
         const hour = passwordValue.substring(4, 6);
         const minute = passwordValue.substring(6, 8);
+        const kind = passwordValue.substring(4);
+        console.log(kind);
         let minutes
         if (minute === '01') {
           minutes = '00';
