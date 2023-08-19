@@ -189,7 +189,8 @@
     <thead>
       <tr>
         <th>行番号</th>
-        <th>時間</th>
+        <th>時間(着)</th>
+        <th>時間(発)</th>
       </tr>
     </thead>
     <tbody id="tableBody">
@@ -207,30 +208,70 @@
         const hour = passwordValue.substring(4, 6);
         const minute = passwordValue.substring(6, 8);
 
-        let currentTime = new Date();
-        currentTime.setHours(parseInt(hour));
-        currentTime.setMinutes(parseInt(minute));
+        let currentTime = '||';
+        let currentTime2 = new Date();
+        currentTime2.setHours(parseInt(hour));
+        currentTime2.setMinutes(parseInt(minute));
 
         // 表をクリア
         tableBody.innerHTML = '';
 
         // 表を再構築
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 14; i++) {
           const newRow = tableBody.insertRow();
           const cell1 = newRow.insertCell(0);
           const cell2 = newRow.insertCell(1);
+          const cell3 = newRow.insertCell(3);
 
           const timeString = formatTime(currentTime);
+          const timeString2 = formatTime(currentTime2);
           cell1.textContent = (i + 1) + '行目';
           cell2.textContent = timeString;
+          cell2.textContent = timeString2;
 
           // 時間の計算
           if (i === 0) {
-            currentTime.setMinutes(currentTime.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+            currentTime2.setMinutes(currentTime.getMinutes() + 3);
           } else if (i === 1) {
-            currentTime.setMinutes(currentTime.getMinutes() + 4);
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 2) {
-            currentTime.setMinutes(currentTime.getMinutes() + 7);
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 3) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 4) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 11);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 5) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 6) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 7) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime.getMinutes() + 3);
+          } else if (i === 8) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 9) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
+            currentTime2.setMinutes(currentTime.getMinutes() + 6);
+          } else if (i === 10) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 11) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
+            currentTime2.setMinutes(currentTime.getMinutes() + 4);
+          } else if (i === 12) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 13);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
+          } else if (i === 13) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime.getMinutes());
           }
         }
       }
