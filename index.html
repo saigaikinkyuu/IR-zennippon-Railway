@@ -184,53 +184,47 @@
   <audio id="audio1" src="ドアチャイム.mp3"></audio>
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
-  <audio id="audio4" src="ドアチャイム.mp3"></audio>
-      <input type="password" id="passwordInput" oninput="updateKind()">
-<table id="resultTable">
-  <tr>
-    <th>行</th>
-    <th>時間</th>
-    <th>分</th>
-  </tr>
-</table>
+  <audio id="audio4" src="ドアチャイム.mp3"></audio><table id="resultTable">
+    <tr>
+      <th>行</th>
+      <th>結果</th>
+    </tr>
+  </table>
 
-<script>
-  function submitForm() {
-    const passwordInput = document.getElementById('passwordInput');
-    const resultTable = document.getElementById('resultTable');
-    resultTable.innerHTML = ''; // テーブルをクリア
+  <script>
+    function submitForm() {
+      const passwordInput = document.getElementById('passwordInput');
+      const table = document.getElementById('resultTable');
 
-    if (passwordInput.value.length >= 8) {
-      const hour = passwordInput.value.substring(4, 6);
-      const minute = passwordInput.value.substring(6, 8);
+      if (passwordInput.value.length >= 8) {
+        table.innerHTML = ''; // テーブルをクリア
 
-      let currentHour = parseInt(hour, 10);
-      let currentMinute = parseInt(minute, 10);
+        const hour = passwordInput.value.substr(4, 2);
+        const minute = passwordInput.value.substr(6, 2);
 
-      for (let i = 1; i <= 13; i++) {
-        const newRow = resultTable.insertRow();
-        const rowCell = newRow.insertCell(0);
-        const hourCell = newRow.insertCell(1);
-        const minuteCell = newRow.insertCell(2);
+        let currentHour = parseInt(hour, 10);
+        let currentMinute = parseInt(minute, 10);
 
-        rowCell.textContent = i;
-        hourCell.textContent = currentHour;
-        minuteCell.textContent = currentMinute;
+        for (let i = 1; i <= 12; i++) {
+          const newRow = table.insertRow();
+          const cell1 = newRow.insertCell(0);
+          const cell2 = newRow.insertCell(1);
 
-        if (i >= 5 && i <= 12) {
-          currentMinute += i % 2 === 0 ? 2 : 4;
-        } else {
-          currentMinute += i % 2 === 0 ? 3 : 5;
-        }
+          cell1.textContent = `${i}行目`;
 
-        if (currentMinute >= 60) {
-          currentHour += 1;
-          currentMinute -= 60;
+          if (i === 1) {
+            cell2.textContent = `${currentHour}時${currentMinute}分`;
+          } else {
+            currentMinute += (i % 2 === 0) ? i + 1 : i;
+            currentHour += Math.floor(currentMinute / 60);
+            currentMinute %= 60;
+
+            cell2.textContent = `${currentHour}時${currentMinute}分`;
+          }
         }
       }
     }
-  }
-</script>
+  </script>
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
