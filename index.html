@@ -185,60 +185,52 @@
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
   <audio id="audio4" src="ドアチャイム.mp3"></audio>
-  <table id="timeTable">
-    <thead>
-      <tr>
-        <th>Password</th>
-        <th>Time</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+      <input type="password" id="passwordInput" oninput="updateKind()">
+<table id="resultTable">
+  <tr>
+    <th>行</th>
+    <th>時間</th>
+    <th>分</th>
+  </tr>
+</table>
 
-  <script>
+<script>
+  function submitForm() {
     const passwordInput = document.getElementById('passwordInput');
-    const timeTable = document.getElementById('timeTable').getElementsByTagName('tbody')[0];
+    const resultTable = document.getElementById('resultTable');
+    resultTable.innerHTML = ''; // テーブルをクリア
 
-    function submitForm() {
-      const password = passwordInput.value;
-      const hours = password.substr(4, 2);
-      const minutes = password.substr(6, 2);
-      const timeString = hours + ':' + minutes;
+    if (passwordInput.value.length >= 8) {
+      const hour = passwordInput.value.substring(4, 6);
+      const minute = passwordInput.value.substring(6, 8);
 
-      const newRow = timeTable.insertRow();
-      const passwordCell = newRow.insertCell(0);
-      const timeCell = newRow.insertCell(1);
+      let currentHour = parseInt(hour, 10);
+      let currentMinute = parseInt(minute, 10);
 
-      passwordCell.textContent = password;
-      timeCell.textContent = timeString;
+      for (let i = 1; i <= 13; i++) {
+        const newRow = resultTable.insertRow();
+        const rowCell = newRow.insertCell(0);
+        const hourCell = newRow.insertCell(1);
+        const minuteCell = newRow.insertCell(2);
 
-      if (timeTable.rows.length > 1) {
-        const prevTime = timeTable.rows[timeTable.rows.length - 2].cells[1].textContent;
-        const nextTime = addMinutes(prevTime, 3);
-        const nextRow = timeTable.rows[timeTable.rows.length - 1];
-        const nextTimeCell = nextRow.insertCell(1);
-        nextTimeCell.textContent = nextTime;
+        rowCell.textContent = i;
+        hourCell.textContent = currentHour;
+        minuteCell.textContent = currentMinute;
+
+        if (i >= 5 && i <= 12) {
+          currentMinute += i % 2 === 0 ? 2 : 4;
+        } else {
+          currentMinute += i % 2 === 0 ? 3 : 5;
+        }
+
+        if (currentMinute >= 60) {
+          currentHour += 1;
+          currentMinute -= 60;
+        }
       }
     }
-
-    function addMinutes(time, minutes) {
-      const [hours, mins] = time.split(':');
-      const totalMinutes = parseInt(hours) * 60 + parseInt(mins) + minutes;
-      const newHours = Math.floor(totalMinutes / 60);
-      const newMins = totalMinutes % 60;
-      return `${padZero(newHours)}:${padZero(newMins)}`;
-    }
-
-    function padZero(num) {
-      return num.toString().padStart(2, '0');
-    }
-
-    // 「」内の処理を13回繰り返す
-    for (let i = 0; i < 13; i++) {
-      submitForm();
-    }
-  </script>
+  }
+</script>
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
