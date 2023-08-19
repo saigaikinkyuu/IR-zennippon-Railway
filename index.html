@@ -207,27 +207,27 @@
       if (passwordValue.length >= 8) {
         const hour = passwordValue.substring(4, 6);
         const minute = passwordValue.substring(6, 8);
-        let minute
+        let minutes
         if (minute === '01') {
-          minute = '00';
+          minutes = '00';
         }else if (minute === '03') {
-          minute = '10';
+          minutes = '10';
         }else if (minute === '05') {
-          minute = '20';
+          minutes = '20';
         }else if (minute === '07') {
-          minute = '30';
+          minutes = '30';
         }else if (minute === '09') {
-          minute = '40';
+          minutes = '40';
         }else if (minute === '11') {
-          minute = '50';
+          minutes = '50';
         }
 
         let currentTime = new Date();
         let currentTime2 = new Date();
         currentTime.setHours(parseInt(hour));
-        currentTime.setMinutes(parseInt(minutet));
+        currentTime.setMinutes(parseInt(minutes));
         currentTime2.setHours(parseInt(hour));
-        currentTime2.setMinutes(parseInt(minutet));
+        currentTime2.setMinutes(parseInt(minutes));
 
         // 表をクリア
         tableBody.innerHTML = '';
