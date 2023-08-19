@@ -185,69 +185,62 @@
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
   <audio id="audio4" src="ドアチャイム.mp3"></audio>
-<table id="timeTable" style="color: white;">
-  <thead>
-    <tr>
-      <th>時間</th>
-      <th>分</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="hourCell"></td>
-      <td id="minuteCell"></td>
-    </tr>
-    <tr>
-      <td id="secondHourCell"></td>
-      <td id="secondMinuteCell"></td>
-    </tr>
-    <tr>
-      <td id="thirdHourCell"></td>
-      <td id="thirdMinuteCell"></td>
-    </tr>
-  </tbody>
-</table>
+  <table id="timeTable">
+    <thead>
+      <tr>
+        <th>行</th>
+        <th>時間</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ここに自動生成される行を追加 -->
+    </tbody>
+  </table>
 
-<script>
-function submitForm() {
-  const passwordInput = document.getElementById('passwordInput');
-  const timeTable = document.getElementById('timeTable');
-  const hourCell = document.getElementById('hourCell');
-  const minuteCell = document.getElementById('minuteCell');
-  const secondHourCell = document.getElementById('secondHourCell');
-  const secondMinuteCell = document.getElementById('secondMinuteCell');
-  const thirdHourCell = document.getElementById('thirdHourCell');
-  const thirdMinuteCell = document.getElementById('thirdMinuteCell');
-  
-  const passwordValue = passwordInput.value;
-  if (passwordValue.length >= 8) {
-    const hour = passwordValue.substring(4, 6);
-    const minute = passwordValue.substring(6, 8);
-    
-    hourCell.textContent = hour;
-    minuteCell.textContent = minute;
-    
-    const secondHour = (parseInt(hour) + 3).toString().padStart(2, '0');
-    const secondMinute = (parseInt(minute) + 4).toString().padStart(2, '0');
-    
-    secondHourCell.textContent = secondHour;
-    secondMinuteCell.textContent = secondMinute;
-    
-    const thirdHour = (parseInt(secondHour) + 3).toString().padStart(2, '0');
-    const thirdMinute = (parseInt(secondMinute) + 4).toString().padStart(2, '0');
-    
-    thirdHourCell.textContent = thirdHour;
-    thirdMinuteCell.textContent = thirdMinute;
-  } else {
-    hourCell.textContent = '';
-    minuteCell.textContent = '';
-    secondHourCell.textContent = '';
-    secondMinuteCell.textContent = '';
-    thirdHourCell.textContent = '';
-    thirdMinuteCell.textContent = '';
-  }
-}
-</script>
+  <script>
+    function submitForm() {
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordValue = passwordInput.value;
+
+      if (passwordValue.length >= 8) {
+        const hours = passwordValue.substr(4, 2);
+        const minutes = passwordValue.substr(6, 2);
+
+        // テーブルの tbody 要素を取得
+        const tableBody = document.querySelector('#timeTable tbody');
+
+        // 既存のテーブル行を削除
+        while (tableBody.firstChild) {
+          tableBody.removeChild(tableBody.firstChild);
+        }
+
+        // 新しい行を作成して追加
+        for (let i = 0; i < 3; i++) {
+          const newRow = tableBody.insertRow();
+
+          const cell1 = newRow.insertCell(0);
+          cell1.textContent = i + 1;
+
+          const cell2 = newRow.insertCell(1);
+          if (i === 0) {
+            cell2.textContent = `${hours}:${minutes}`;
+          } else {
+            const prevRowTime = cell2.parentElement.previousElementSibling.cells[1].textContent;
+            const prevHours = parseInt(prevRowTime.split(':')[0]);
+            const prevMinutes = parseInt(prevRowTime.split(':')[1]);
+
+            const nextHours = (i === 1) ? prevHours : prevHours + 1;
+            const nextMinutes = (i === 1) ? prevMinutes + 3 : prevMinutes + 4;
+
+            const formattedNextHours = String(nextHours).padStart(2, '0');
+            const formattedNextMinutes = String(nextMinutes).padStart(2, '0');
+
+            cell2.textContent = `${formattedNextHours}:${formattedNextMinutes}`;
+          }
+        }
+      }
+    }
+  </script>
   <script>
     var button1 = document.getElementById('button1');
     var audio = new Audio('button audio.mp3');
