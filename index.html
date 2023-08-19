@@ -208,8 +208,10 @@
         const hour = passwordValue.substring(4, 6);
         const minute = passwordValue.substring(6, 8);
 
-        let currentTime = '||';
+        let currentTime = new Date();
         let currentTime2 = new Date();
+        currentTime.setHours(parseInt(hour));
+        currentTime.setMinutes(parseInt(minute));
         currentTime2.setHours(parseInt(hour));
         currentTime2.setMinutes(parseInt(minute));
 
