@@ -232,8 +232,10 @@
   const Aaudio9 = new Audio('番号9.mp3');
       Aaudio.currentTime = 0;
       Aaudio.play();
-
-  for (let n = 1; n < 6; n++) {
+          let n = 0;
+ function numbersay() {
+   if (n < 6) {
+   n++
     let Atext;
     console.log(n);
     if(n === 1) {
@@ -257,44 +259,55 @@
       console.log('実行');
       Aaudio0.currentTime = 0;
       Aaudio0.play();
+      numbersay();
     } else if (Atext === 1) {
       console.log('実行');
       Aaudio1.currentTime = 0;
       Aaudio1.play();
+      numbersay();
     } else if (Atext === 2) {
       console.log('実行');
       Aaudio2.currentTime = 0;
       Aaudio2.play();
+      numbersay();
     } else if (Atext === 3) {
       console.log('実行');
       Aaudio3.currentTime = 0;
       Aaudio3.play();
+      numbersay();
     } else if (Atext === 4) {
       console.log('実行');
       Aaudio4.currentTime = 0;
       Aaudio4.play();
+      numbersay();
     } else if (Atext === 5) {
       console.log('実行');
       Aaudio5.currentTime = 0;
       Aaudio5.play();
+      numbersay();
     } else if (Atext === 6) {
       console.log('実行');
       Aaudio6.currentTime = 0;
       Aaudio6.play();
+      numbersay();
     } else if (Atext === 7) {
       console.log('実行');
       Aaudio7.currentTime = 0;
       Aaudio7.play();
+      numbersay();
     } else if (Atext === 8) {
       console.log('実行');
       Aaudio8.currentTime = 0;
       Aaudio8.play();
+      numbersay();
     } else if (Atext === 9) {
       console.log('実行');
       Aaudio9.currentTime = 0;
       Aaudio9.play();
+      numbersay();
     }
-  }
+   }
+               }
 }
 
       </script>
