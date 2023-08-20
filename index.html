@@ -232,41 +232,41 @@
   const Aaudio9 = new Audio('番号9.mp3');
 
   for (let n = 0; n < 5; n++) {
-    const Atext = document.getElementById('number' + n).textContent;
+    const Atext = 'number' + n;
     console.log(n);
     console.log(Atext);
 
     if (n === 0) {
       Aaudio.currentTime = 0;
       Aaudio.play();
-    } else if (parseInt(Atext) === 0) {
+    } else if (Atext === 0) {
       Aaudio0.currentTime = 0;
       Aaudio0.play();
-    } else if (parseInt(Atext) === 1) {
+    } else if (Atext === 1) {
       Aaudio1.currentTime = 0;
       Aaudio1.play();
-    } else if (parseInt(Atext) === 2) {
+    } else if (Atext === 2) {
       Aaudio2.currentTime = 0;
       Aaudio2.play();
-    } else if (parseInt(Atext) === 3) {
+    } else if (Atext === 3) {
       Aaudio3.currentTime = 0;
       Aaudio3.play();
-    } else if (parseInt(Atext) === 4) {
+    } else if (Atext === 4) {
       Aaudio4.currentTime = 0;
       Aaudio4.play();
-    } else if (parseInt(Atext) === 5) {
+    } else if (Atext === 5) {
       Aaudio5.currentTime = 0;
       Aaudio5.play();
-    } else if (parseInt(Atext) === 6) {
+    } else if (Atext === 6) {
       Aaudio6.currentTime = 0;
       Aaudio6.play();
-    } else if (parseInt(Atext) === 7) {
+    } else if (Atext === 7) {
       Aaudio7.currentTime = 0;
       Aaudio7.play();
-    } else if (parseInt(Atext) === 8) {
+    } else if (Atext === 8) {
       Aaudio8.currentTime = 0;
       Aaudio8.play();
-    } else if (parseInt(Atext) === 9) {
+    } else if (Atext === 9) {
       Aaudio9.currentTime = 0;
       Aaudio9.play();
     }
