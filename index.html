@@ -210,66 +210,69 @@
   </table>
 
       <script>
-    function submitForm() {
-      const passwordInput = document.getElementById('passwordInput');
-      const tableBody = document.getElementById('tableBody');
-      const passwordValue = passwordInput.value;
-        const number1 = passwordValue.substring(0, 1);
-        const number2 = passwordValue.substring(1, 2);
-        const number3 = passwordValue.substring(2, 3);
-        const number4 = passwordValue.substring(3, 4);
-        const number5 = passwordValue.substring(4, 5);
-        for (let n = -1; n > 5; n++){
-        var Aaudio = new Audio('番号確認.mp3');
-        var Aaudio0 = new Audio('番号0.mp3');
-        var Aaudio1 = new Audio('番号1.mp3');
-        var Aaudio2 = new Audio('番号2.mp3');
-        var Aaudio3 = new Audio('番号3.mp3');
-        var Aaudio4 = new Audio('番号4.mp3');
-        var Aaudio5 = new Audio('番号5.mp3');
-        var Aaudio6 = new Audio('番号6.mp3');
-        var Aaudio7 = new Audio('番号7.mp3');
-        var Aaudio8 = new Audio('番号8.mp3');
-        var Aaudio9 = new Audio('番号9.mp3');
-        var Atext =  document.getElementById('number' + n);
-          console.log(n);
-          console.log(Atext);
-          if (n === 0) {
-　      Aaudio.currentTime = 0; // 再生位置をリセット
-  　    Aaudio.play();
-          }else if (Atext === 0) {
-　      Aaudio0.currentTime = 0; // 再生位置をリセット
-  　    Aaudio0.play();
-          }else if (Atext === 1) {
-　      Aaudio1.currentTime = 0; // 再生位置をリセット
-  　    Aaudio1.play();
-          }else if (Atext === 2) {
-　      Aaudio2.currentTime = 0; // 再生位置をリセット
-  　    Aaudio2.play();
-          }else if (Atext === 3) {
-　      Aaudio3.currentTime = 0; // 再生位置をリセット
-  　    Aaudio3.play();
-          }else if (Atext === 4) {
-　      Aaudio4.currentTime = 0; // 再生位置をリセット
-  　    Aaudio4.play();
-          }else if (Atext === 5) {
-　      Aaudio5.currentTime = 0; // 再生位置をリセット
-  　    Aaudio5.play();
-          }else if (Atext === 6) {
-　      Aaudio6.currentTime = 0; // 再生位置をリセット
-  　    Aaudio6.play();
-          }else if (Atext === 7) {
-　      Aaudio7.currentTime = 0; // 再生位置をリセット
-  　    Aaudio7.play();
-          }else if (Atext === 8) {
-　      Aaudio8.currentTime = 0; // 再生位置をリセット
-  　    Aaudio8.play();
-          }else if (Atext === 9) {
-　      Aaudio9.currentTime = 0; // 再生位置をリセット
-  　    Aaudio9.play();
-          }
-        }
-        }
+        function submitForm() {
+  const passwordInput = document.getElementById('passwordInput');
+  const passwordValue = passwordInput.value;
+  const number1 = passwordValue.substring(0, 1);
+  const number2 = passwordValue.substring(1, 2);
+  const number3 = passwordValue.substring(2, 3);
+  const number4 = passwordValue.substring(3, 4);
+  const number5 = passwordValue.substring(4, 5);
+
+  const Aaudio = new Audio('番号確認.mp3');
+  const Aaudio0 = new Audio('番号0.mp3');
+  const Aaudio1 = new Audio('番号1.mp3');
+  const Aaudio2 = new Audio('番号2.mp3');
+  const Aaudio3 = new Audio('番号3.mp3');
+  const Aaudio4 = new Audio('番号4.mp3');
+  const Aaudio5 = new Audio('番号5.mp3');
+  const Aaudio6 = new Audio('番号6.mp3');
+  const Aaudio7 = new Audio('番号7.mp3');
+  const Aaudio8 = new Audio('番号8.mp3');
+  const Aaudio9 = new Audio('番号9.mp3');
+
+  for (let n = 0; n < 5; n++) {
+    const Atext = document.getElementById('number' + n).textContent;
+    console.log(n);
+    console.log(Atext);
+
+    if (n === 0) {
+      Aaudio.currentTime = 0;
+      Aaudio.play();
+    } else if (parseInt(Atext) === 0) {
+      Aaudio0.currentTime = 0;
+      Aaudio0.play();
+    } else if (parseInt(Atext) === 1) {
+      Aaudio1.currentTime = 0;
+      Aaudio1.play();
+    } else if (parseInt(Atext) === 2) {
+      Aaudio2.currentTime = 0;
+      Aaudio2.play();
+    } else if (parseInt(Atext) === 3) {
+      Aaudio3.currentTime = 0;
+      Aaudio3.play();
+    } else if (parseInt(Atext) === 4) {
+      Aaudio4.currentTime = 0;
+      Aaudio4.play();
+    } else if (parseInt(Atext) === 5) {
+      Aaudio5.currentTime = 0;
+      Aaudio5.play();
+    } else if (parseInt(Atext) === 6) {
+      Aaudio6.currentTime = 0;
+      Aaudio6.play();
+    } else if (parseInt(Atext) === 7) {
+      Aaudio7.currentTime = 0;
+      Aaudio7.play();
+    } else if (parseInt(Atext) === 8) {
+      Aaudio8.currentTime = 0;
+      Aaudio8.play();
+    } else if (parseInt(Atext) === 9) {
+      Aaudio9.currentTime = 0;
+      Aaudio9.play();
+    }
+  }
+}
+
       </script>
   <script>
     function submitForm() {
