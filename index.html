@@ -100,7 +100,7 @@
   </div>
 
   <!-- パスワード入力フォーム -->
-  <div id="password-form" style="display: block;">
+  <div id="password-form" style="display: block; margin-top: 0px;">
     <h2 style="color: white;">列車番号を入力してください</h2>
     <input type="password" id="passwordInput" oninput="updateKind()">
     <br>
@@ -185,10 +185,21 @@
   <audio id="audio2" src="ドアチャイム.mp3"></audio>
   <audio id="audio3" src="ドアチャイム.mp3"></audio>
   <audio id="audio4" src="ドアチャイム.mp3"></audio>
+  <audio id="audio5" src="番号確認.mp3"></audio>
+  <audio id="Aaudio1" src="番号1.mp3"></audio>
+  <audio id="Aaudio2" src="番号2.mp3"></audio>
+  <audio id="Aaudio3" src="番号3.mp3"></audio>
+  <audio id="Aaudio4" src="番号4.mp3"></audio>
+  <audio id="Aaudio5" src="番号5.mp3"></audio>
+  <audio id="Aaudio6" src="番号6.mp3"></audio>
+  <audio id="Aaudio7" src="番号7.mp3"></audio>
+  <audio id="Aaudio8" src="番号8.mp3"></audio>
+  <audio id="Aaudio9" src="番号9.mp3"></audio>
+  <audio id="Aaudio0" src="番号0.mp3"></audio>
   <table border="1" style="color: white;">
     <thead>
       <tr>
-        <th>行番号</th>
+        <th>駅名</th>
         <th>時間(着)</th>
         <th>時間(発)</th>
       </tr>
@@ -204,10 +215,15 @@
       const tableBody = document.getElementById('tableBody');
       const passwordValue = passwordInput.value;
 
-      if (passwordValue.length >= 8) {
-        const hour = passwordValue.substring(4, 6);
-        const minute = passwordValue.substring(6, 8);
-        const kind = passwordValue.substring(3, 4);
+      if (passwordValue.length >= 5) {
+        const hour = passwordValue.substring(1, 3);
+        const minute = passwordValue.substring(3, 5);
+        const kind = passwordValue.substring(0, 1);
+        const number1 = passwordValue.substring(0, 1);
+        const number2 = passwordValue.substring(1, 2);
+        const number3 = passwordValue.substring(2, 3);
+        const number4 = passwordValue.substring(3, 4);
+        const number5 = passwordValue.substring(4, 5);
         console.log(kind);
         let minutes
         if (minute === '01') {
@@ -222,6 +238,54 @@
           minutes = '40';
         }else if (minute === '11') {
           minutes = '50';
+        }
+        for (let n = -1; n < 6 n++){
+        var Aaudio = new Audio('番号確認.mp3');
+        var Aaudio0 = new Audio('番号0.mp3');
+        var Aaudio1 = new Audio('番号1.mp3');
+        var Aaudio2 = new Audio('番号2.mp3');
+        var Aaudio3 = new Audio('番号3.mp3');
+        var Aaudio4 = new Audio('番号4.mp3');
+        var Aaudio5 = new Audio('番号5.mp3');
+        var Aaudio6 = new Audio('番号6.mp3');
+        var Aaudio7 = new Audio('番号7.mp3');
+        var Aaudio8 = new Audio('番号8.mp3');
+        var Aaudio9 = new Audio('番号9.mp3');
+        var Atext =  document.getElementById('number' + n);
+          if (n === 0) {
+　      Aaudio.currentTime = 0; // 再生位置をリセット
+  　    Aaudio.play();
+          }else if (Atext === 0) {
+　      Aaudio0.currentTime = 0; // 再生位置をリセット
+  　    Aaudio0.play();
+          }else if (Atext === 1) {
+　      Aaudio1.currentTime = 0; // 再生位置をリセット
+  　    Aaudio1.play();
+          }else if (Atext === 2) {
+　      Aaudio2.currentTime = 0; // 再生位置をリセット
+  　    Aaudio2.play();
+          }else if (Atext === 3) {
+　      Aaudio3.currentTime = 0; // 再生位置をリセット
+  　    Aaudio3.play();
+          }else if (Atext === 4) {
+　      Aaudio4.currentTime = 0; // 再生位置をリセット
+  　    Aaudio4.play();
+          }else if (Atext === 5) {
+　      Aaudio5.currentTime = 0; // 再生位置をリセット
+  　    Aaudio5.play();
+          }else if (Atext === 6) {
+　      Aaudio6.currentTime = 0; // 再生位置をリセット
+  　    Aaudio6.play();
+          }else if (Atext === 7) {
+　      Aaudio7.currentTime = 0; // 再生位置をリセット
+  　    Aaudio7.play();
+          }else if (Atext === 8) {
+　      Aaudio8.currentTime = 0; // 再生位置をリセット
+  　    Aaudio8.play();
+          }else if (Atext === 9) {
+　      Aaudio9.currentTime = 0; // 再生位置をリセット
+  　    Aaudio9.play();
+          }
         }
 
         let currentTime = new Date();
