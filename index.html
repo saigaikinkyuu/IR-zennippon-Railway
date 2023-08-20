@@ -232,14 +232,19 @@
   const Aaudio9 = new Audio('番号9.mp3');
 
   for (let n = 0; n < 6; n++) {
-    const Atext = 'number' + n;
+    let Atext;
     console.log(n);
-    console.log(Atext);
-    console.log(number1);
-    console.log(number2);
-    console.log(number3);
-    console.log(number4);
-    console.log(number5);
+    if(n === 1) {
+      Atext = number1;
+    }else if(n === 2) {
+      Atext = number2;
+    }else if(n === 3) {
+      Atext = number3;
+    }else if(n === 4) {
+      Atext = number4;
+    }else if(n === 5) {
+      Atext = number5;
+    }
 
     if (n === 0) {
       console.log('実行');
