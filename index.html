@@ -230,8 +230,10 @@
   const Aaudio7 = new Audio('番号7.mp3');
   const Aaudio8 = new Audio('番号8.mp3');
   const Aaudio9 = new Audio('番号9.mp3');
+      Aaudio.currentTime = 0;
+      Aaudio.play();
 
-  for (let n = 0; n < 6; n++) {
+  for (let n = 1; n < 6; n++) {
     let Atext;
     console.log(n);
     if(n === 1) {
@@ -250,71 +252,47 @@
       Atext = number5;
       console.log('N5:' + Atext);
     }
-
-    if (n === 0) {
-      console.log('実行');
-      Aaudio.currentTime = 0;
-      Aaudio.play();
-    } else if (Atext === 0) {
-      setTimeout(function() {
+     
+    if (Atext === 0) {
       console.log('実行');
       Aaudio0.currentTime = 0;
       Aaudio0.play();
-    }, 2500);
     } else if (Atext === 1) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio1.currentTime = 0;
       Aaudio1.play();
-        }, 2500);
     } else if (Atext === 2) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio2.currentTime = 0;
       Aaudio2.play();
-        }, 2500);
     } else if (Atext === 3) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio3.currentTime = 0;
       Aaudio3.play();
-        }, 2500);
     } else if (Atext === 4) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio4.currentTime = 0;
       Aaudio4.play();
-        }, 2500);
     } else if (Atext === 5) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio5.currentTime = 0;
       Aaudio5.play();
-        }, 2500);
     } else if (Atext === 6) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio6.currentTime = 0;
       Aaudio6.play();
-        }, 2500);
     } else if (Atext === 7) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio7.currentTime = 0;
       Aaudio7.play();
-        }, 2500);
     } else if (Atext === 8) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio8.currentTime = 0;
       Aaudio8.play();
-        }, 2500);
     } else if (Atext === 9) {
-      setTimeout(function() {
       console.log('実行');
       Aaudio9.currentTime = 0;
       Aaudio9.play();
-        }, 2500);
     }
   }
 }
