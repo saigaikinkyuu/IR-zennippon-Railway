@@ -233,14 +233,25 @@ function submitFormF() {
         var fifthChar = passwordInput.charAt(4);
 
         playAudio("Aaudio" + firstChar, "Aaudio" + secondChar);
-        playAudio("Aaudio" + secondChar, "Aaudio" + thirdChar);
-        playAudio("Aaudio" + thirdChar, "Aaudio" + fourthChar);
-        playAudio("Aaudio" + fourthChar, "Aaudio" + fifthChar);
-        playAudio("Aaudio" + fifthChar);
     }
 }
-</script>
 
+function submitForm1() {
+    playAudio("Aaudio" + passwordInput.charAt(1), "Aaudio" + passwordInput.charAt(2));
+}
+
+function submitForm2() {
+    playAudio("Aaudio" + passwordInput.charAt(2), "Aaudio" + passwordInput.charAt(3));
+}
+
+function submitForm3() {
+    playAudio("Aaudio" + passwordInput.charAt(3), "Aaudio" + passwordInput.charAt(4));
+}
+
+function submitForm4() {
+    playAudio("Aaudio" + passwordInput.charAt(4));
+}
+</script>
   <script>
     function submitForm() {
       const passwordInput = document.getElementById('passwordInput');
