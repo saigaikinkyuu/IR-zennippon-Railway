@@ -203,6 +203,7 @@
         <th>駅名</th>
         <th>時間(着)</th>
         <th>時間(発)</th>
+        <th>乗換/通待</th>
       </tr>
     </thead>
     <tbody id="tableBody">
@@ -300,10 +301,12 @@ function playNextAudio() {
           const cell1 = newRow.insertCell(0);
           const cell2 = newRow.insertCell(1);
           const cell3 = newRow.insertCell(2);
+          const cell4 = newRow.insertCell(3);
 
           const timeString = formatTime(currentTime);
           const timeString2 = formatTime(currentTime2);
           let staname;
+          let changeline;
           if (i === 0){
             staname = '品川'
           }else if (i === 1){
@@ -335,9 +338,42 @@ function playNextAudio() {
           }else if (i === 14){
             staname = '宮吉'
           }
+          
+          if (i === 0){
+            changeline = 'なし'
+          }else if (i === 1){
+            changeline = '通勤快速/快速'
+          }else if (i === 2){
+            changeline = '快速'
+          }else if (i === 3){
+            changeline = '快速'
+          }else if (i === 4){
+            changeline = '快速'
+          }else if (i === 5){
+            changeline = ''
+          }else if (i === 6){
+            changeline = ''
+          }else if (i === 7){
+            changeline = ''
+          }else if (i === 8){
+            changeline ='全種別'
+          }else if (i === 9){
+            changeline = '快速'
+          }else if (i === 10){
+            changeline = '快速'
+          }else if (i === 11){
+            changeline = ''
+          }else if (i === 12){
+            changeline = ''
+          }else if (i === 13){
+            changeline = ''
+          }else if (i === 14){
+            changeline = ''
+          }
           cell1.textContent = staname ;
           cell2.textContent = timeString;
           cell3.textContent = timeString2;
+          cell4.textContent = changeline;
 
           // 時間の計算
           if (i === 0) {
