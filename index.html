@@ -547,60 +547,45 @@ function playNextAudio() {
           // 時間の計算
           if (i === 0) {
             currentTime2.setMinutes(currentTime.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime.getMinutes() + 3);
           } else if (i === 1) {
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 2) {
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 3) {
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 4) {
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 5) {
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 6) {
+            currentTime2.setMinutes(currentTime.getMinutes() + 1);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 7) {
             currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime.getMinutes() + 3);
           } else if (i === 8) {
             currentTime.setMinutes(currentTime2.getMinutes() + 6);
-          } else if (i === 9) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 10);
-          } else if (i === 10) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 12);
-          } else if (i === 11) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 8);
-          } else if (i === 12) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 10);
-          } else if (i === 13) {
-            currentTime.setMinutes(currentTime2.getMinutes() + 12);
-          }
-          if (i === 0) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 3);
-          } else if (i === 1) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 2) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 3) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 4) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 5) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 6) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 1);
-          } else if (i === 7) {
-            currentTime2.setMinutes(currentTime.getMinutes() + 3);
-          } else if (i === 8) {
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 9) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
             currentTime2.setMinutes(currentTime.getMinutes() + 6);
           } else if (i === 10) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 11) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
             currentTime2.setMinutes(currentTime.getMinutes() + 4);
           } else if (i === 12) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           } else if (i === 13) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
             currentTime2.setMinutes(currentTime.getMinutes() + 1);
           }
         }
@@ -610,7 +595,10 @@ function playNextAudio() {
     function formatTime(date) {
       const hours = String(date.getHours()).padStart(2, '0');
       const minutes = String(date.getMinutes()).padStart(2, '0');
+      const hours2 = String2(date.getHours()).padStart(2, '0');
+      const minutes2 = String2(date.getMinutes()).padStart(2, '0');
       return hours + ':' + minutes;
+      return hours2 + ':' + minutes2;
     }
   </script>
   <script>
