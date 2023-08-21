@@ -210,6 +210,7 @@
   </table>
       <script>
 var audioQueue = []; // オーディオ再生キュー
+var isPlaying = false; // 再生中かどうかのフラグ
 
 function playAudio(audioId) {
     var audioElement = document.getElementById(audioId);
@@ -217,6 +218,10 @@ function playAudio(audioId) {
 }
 
 function submitFormF() {
+    if (isPlaying) {
+        return; // 再生中の場合は処理しない
+    }
+
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
     
@@ -231,7 +236,7 @@ function submitFormF() {
         ];
 
         // キューに音声ファイルを追加
-        audioQueue = audioQueue.concat(audioElements);
+        audioQueue = audioElements;
 
         // 最初の音声を再生
         playNextAudio();
@@ -240,11 +245,19 @@ function submitFormF() {
 
 function playNextAudio() {
     if (audioQueue.length > 0) {
+        isPlaying = true; // 再生中フラグをセット
         var nextAudio = audioQueue.shift(); // キューの先頭から音声ファイルを取得して削除
         playAudio(nextAudio);
+
+        var audioElement = document.getElementById(nextAudio);
+        audioElement.onended = function() {
+            isPlaying = false; // 再生完了後にフラグをリセット
+            playNextAudio(); // 次の音声を再生
+        };
     }
 }
 </script>
+
   <script>
     function submitForm() {
       const passwordInput = document.getElementById('passwordInput');
