@@ -217,44 +217,18 @@ function playAudio(audioId) {
 function submitFormF() {
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
-    submitForm1();
-}
-
-function submitForm1() {
-    playAudio(getAudioIdByChar(0));
-    submitForm2();
-}
-
-function submitForm2() {
-    playAudio(getAudioIdByChar(1));
-    submitForm3();
-}
-
-function submitForm3() {
-    playAudio(getAudioIdByChar(2));
-    submitForm4();
-}
-
-function submitForm4() {
-    playAudio(getAudioIdByChar(3));
-    submitForm5();
-}
-
-function submitForm5() {
-    playAudio(getAudioIdByChar(4));
-}
-
-function getAudioIdByChar(charIndex) {
+    
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(charIndex).toUpperCase();
-        var audioId = "Aaudio" + fChar;
-        
-        return audioId;
+        playAudio("Aaudio" + passwordInput.charAt(0));
+        playAudio("Aaudio" + passwordInput.charAt(1));
+        playAudio("Aaudio" + passwordInput.charAt(2));
+        playAudio("Aaudio" + passwordInput.charAt(3));
+        playAudio("Aaudio" + passwordInput.charAt(4));
     }
 }
-
 </script>
+
   <script>
     function submitForm() {
       const passwordInput = document.getElementById('passwordInput');
