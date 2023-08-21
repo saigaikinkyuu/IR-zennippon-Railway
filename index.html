@@ -226,7 +226,6 @@ function submitFormF() {
     
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-      if (passwordInput.charAt(0) === 0) {
         var audioElements = [
           "audio5",
             "Aaudio" + passwordInput.charAt(0),
@@ -234,42 +233,6 @@ function submitFormF() {
             "Aaudio" + passwordInput.charAt(2),
             "Aaudio" + passwordInput.charAt(3),
             "Aaudio" + passwordInput.charAt(4)
-        ];
-
-        // キューに音声ファイルを追加
-        audioQueue = audioElements;
-
-        // 最初の音声を再生
-        playNextAudio();
-      }else if (passwordInput.charAt(0) == 1) {
-        if (passwordInput.charAt(1) < 3) {
-        var audioElements = [
-          "audio5",
-            "Aaudio" + passwordInput.charAt(0),
-            "Aaudio" + passwordInput.charAt(1),
-            "Aaudio" + passwordInput.charAt(2),
-            "Aaudio" + passwordInput.charAt(3),
-            "Aaudio" + passwordInput.charAt(4)
-        ];
-
-        // キューに音声ファイルを追加
-        audioQueue = audioElements;
-
-        // 最初の音声を再生
-        playNextAudio();
-          }else{
-        var audioElements = [
-          "audioE",
-        ];
-
-        // キューに音声ファイルを追加
-        audioQueue = audioElements;
-
-        // 最初の音声を再生
-        playNextAudio();
-      }}else{
-        var audioElements = [
-          "audioE",
         ];
 
         // キューに音声ファイルを追加
@@ -278,17 +241,6 @@ function submitFormF() {
         // 最初の音声を再生
         playNextAudio();
       }
-    }else {
-        var audioElements = [
-          "audioE",
-        ];
-
-        // キューに音声ファイルを追加
-        audioQueue = audioElements;
-
-        // 最初の音声を再生
-        playNextAudio();
-    }
 }
 
 function playNextAudio() {
