@@ -209,13 +209,18 @@
     </tbody>
   </table>
       <script>
-function playAudio(audioId, nextAudioId) {
+var passwordInput;
+var currentIndex = 0;
+var audioElements = [];
+
+function playAudio(audioId) {
     var audioElement = document.getElementById(audioId);
     audioElement.play();
 
     audioElement.onended = function() {
-        if (nextAudioId) {
-            playAudio(nextAudioId);
+        currentIndex++;
+        if (currentIndex < audioElements.length) {
+            playAudio(audioElements[currentIndex]);
         }
     };
 }
@@ -224,32 +229,16 @@ function submitFormF() {
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
     
-    var passwordInput = document.getElementById("passwordInput").value;
+    passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-        var firstChar = passwordInput.charAt(0);
-        var secondChar = passwordInput.charAt(1);
-        var thirdChar = passwordInput.charAt(2);
-        var fourthChar = passwordInput.charAt(3);
-        var fifthChar = passwordInput.charAt(4);
+        audioElements.push("Aaudio" + passwordInput.charAt(0));
+        audioElements.push("Aaudio" + passwordInput.charAt(1));
+        audioElements.push("Aaudio" + passwordInput.charAt(2));
+        audioElements.push("Aaudio" + passwordInput.charAt(3));
+        audioElements.push("Aaudio" + passwordInput.charAt(4));
 
-        playAudio("Aaudio" + firstChar, "Aaudio" + secondChar);
+        playAudio(audioElements[currentIndex]);
     }
-}
-
-function submitForm1() {
-    playAudio("Aaudio" + passwordInput.charAt(1), "Aaudio" + passwordInput.charAt(2));
-}
-
-function submitForm2() {
-    playAudio("Aaudio" + passwordInput.charAt(2), "Aaudio" + passwordInput.charAt(3));
-}
-
-function submitForm3() {
-    playAudio("Aaudio" + passwordInput.charAt(3), "Aaudio" + passwordInput.charAt(4));
-}
-
-function submitForm4() {
-    playAudio("Aaudio" + passwordInput.charAt(4));
 }
 </script>
   <script>
