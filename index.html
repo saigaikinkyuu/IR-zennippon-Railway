@@ -208,26 +208,21 @@
       <!-- 表の行はここに追加されます -->
     </tbody>
   </table>
-
+      <script>
+        function submitFormF() {
+        var audioElement1 = document.getElementById("audio5");
+        audioElement1.play();
+          submitForm1();
+        }
+      </script>
       <script>
         function submitForm1() {
     var passwordInput = document.getElementById("passwordInput").value;
-    
     if (passwordInput.length >= 5) {
         var fChar = passwordInput.charAt(0).toUpperCase();
-        var sChar = passwordInput.charAt(1).toUpperCase();
-        var tChar = passwordInput.charAt(2).toUpperCase();
-        var foChar = passwordInput.charAt(3).toUpperCase();
-        var fiChar = passwordInput.charAt(4).toUpperCase();
         console.log(fChar);
-        console.log(sChar);
-        console.log(tChar);
-        console.log(foChar);
-        console.log(fiChar);
         
         var audioElement = document.getElementById("Aaudio1");
-        var audioElement1 = document.getElementById("audio5");
-        audioElement1.play();
         
         if (fChar === "0") {
             audioElement = document.getElementById("Aaudio0");
@@ -252,113 +247,156 @@
         }
         
         audioElement.play();
-        
-        audioElement.onended = function() {
-            if (sChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (sChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (sChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (sChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (sChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (sChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (sChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (sChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (sChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (sChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-            
-            audioElement.play();
-        };
-        audioElement.onended = function() {
-            if (tChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (tChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (tChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (tChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (tChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (tChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (tChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (tChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (tChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (tChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-            
-            audioElement.play();
-        };
-        audioElement.onended = function() {
-            if (foChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (foChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (foChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (foChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (foChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (foChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (foChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (foChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (foChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (foChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-            
-            audioElement.play();
-        };
-        audioElement.onended = function() {
-            if (fiChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fiChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fiChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fiChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fiChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fiChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fiChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fiChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fiChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fiChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-            
-            audioElement.play();
-        };
-    }
+      submitForm2()
 }
+        }
+      </script>
+      <script>
+        function submitForm2() {
+    var passwordInput = document.getElementById("passwordInput").value;
+    if (passwordInput.length >= 5) {
+        var fChar = passwordInput.charAt(1).toUpperCase();
+        console.log(fChar);
+        
+        var audioElement = document.getElementById("Aaudio1");
+        
+        if (fChar === "0") {
+            audioElement = document.getElementById("Aaudio0");
+        } else if (fChar === "1") {
+            audioElement = document.getElementById("Aaudio1");
+        } else if (fChar === "2") {
+            audioElement = document.getElementById("Aaudio2");
+        } else if (fChar === "3") {
+            audioElement = document.getElementById("Aaudio3");
+        } else if (fChar === "4") {
+            audioElement = document.getElementById("Aaudio4");
+        } else if (fChar === "5") {
+            audioElement = document.getElementById("Aaudio5");
+        } else if (fChar === "6") {
+            audioElement = document.getElementById("Aaudio6");
+        } else if (fChar === "7") {
+            audioElement = document.getElementById("Aaudio7");
+        } else if (fChar === "8") {
+            audioElement = document.getElementById("Aaudio8");
+        } else if (fChar === "9") {
+            audioElement = document.getElementById("Aaudio9");
+        }
+        
+        audioElement.play();
+      submitForm3();
+}
+        }
+      </script>
+      <script>
+        function submitForm3() {
+    var passwordInput = document.getElementById("passwordInput").value;
+    if (passwordInput.length >= 5) {
+        var fChar = passwordInput.charAt(2).toUpperCase();
+        console.log(fChar);
+        
+        var audioElement = document.getElementById("Aaudio1");
+        
+        if (fChar === "0") {
+            audioElement = document.getElementById("Aaudio0");
+        } else if (fChar === "1") {
+            audioElement = document.getElementById("Aaudio1");
+        } else if (fChar === "2") {
+            audioElement = document.getElementById("Aaudio2");
+        } else if (fChar === "3") {
+            audioElement = document.getElementById("Aaudio3");
+        } else if (fChar === "4") {
+            audioElement = document.getElementById("Aaudio4");
+        } else if (fChar === "5") {
+            audioElement = document.getElementById("Aaudio5");
+        } else if (fChar === "6") {
+            audioElement = document.getElementById("Aaudio6");
+        } else if (fChar === "7") {
+            audioElement = document.getElementById("Aaudio7");
+        } else if (fChar === "8") {
+            audioElement = document.getElementById("Aaudio8");
+        } else if (fChar === "9") {
+            audioElement = document.getElementById("Aaudio9");
+        }
+        
+        audioElement.play();
+      submitForm4();
+}
+        }
+      </script>
+      <script>
+        function submitForm4() {
+    var passwordInput = document.getElementById("passwordInput").value;
+    if (passwordInput.length >= 5) {
+        var fChar = passwordInput.charAt(3).toUpperCase();
+        console.log(fChar);
+        
+        var audioElement = document.getElementById("Aaudio1");
+        
+        if (fChar === "0") {
+            audioElement = document.getElementById("Aaudio0");
+        } else if (fChar === "1") {
+            audioElement = document.getElementById("Aaudio1");
+        } else if (fChar === "2") {
+            audioElement = document.getElementById("Aaudio2");
+        } else if (fChar === "3") {
+            audioElement = document.getElementById("Aaudio3");
+        } else if (fChar === "4") {
+            audioElement = document.getElementById("Aaudio4");
+        } else if (fChar === "5") {
+            audioElement = document.getElementById("Aaudio5");
+        } else if (fChar === "6") {
+            audioElement = document.getElementById("Aaudio6");
+        } else if (fChar === "7") {
+            audioElement = document.getElementById("Aaudio7");
+        } else if (fChar === "8") {
+            audioElement = document.getElementById("Aaudio8");
+        } else if (fChar === "9") {
+            audioElement = document.getElementById("Aaudio9");
+        }
+        
+        audioElement.play();
+      submitForm5();
+}
+        }
+      </script>
+      <script>
+        function submitForm5() {
+    var passwordInput = document.getElementById("passwordInput").value;
+    if (passwordInput.length >= 5) {
+        var fChar = passwordInput.charAt(4).toUpperCase();
+        console.log(fChar);
+        
+        var audioElement = document.getElementById("Aaudio1");
+        
+        if (fChar === "0") {
+            audioElement = document.getElementById("Aaudio0");
+        } else if (fChar === "1") {
+            audioElement = document.getElementById("Aaudio1");
+        } else if (fChar === "2") {
+            audioElement = document.getElementById("Aaudio2");
+        } else if (fChar === "3") {
+            audioElement = document.getElementById("Aaudio3");
+        } else if (fChar === "4") {
+            audioElement = document.getElementById("Aaudio4");
+        } else if (fChar === "5") {
+            audioElement = document.getElementById("Aaudio5");
+        } else if (fChar === "6") {
+            audioElement = document.getElementById("Aaudio6");
+        } else if (fChar === "7") {
+            audioElement = document.getElementById("Aaudio7");
+        } else if (fChar === "8") {
+            audioElement = document.getElementById("Aaudio8");
+        } else if (fChar === "9") {
+            audioElement = document.getElementById("Aaudio9");
+        }
+        
+        audioElement.play();
+}
+        }
       </script>
   <script>
     function submitForm() {
-      submitForm1();
+      submitFormF();
       const passwordInput = document.getElementById('passwordInput');
       const tableBody = document.getElementById('tableBody');
       const passwordValue = passwordInput.value;
