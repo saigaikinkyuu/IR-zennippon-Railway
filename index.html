@@ -222,12 +222,11 @@ function submitFormF() {
         return; // 再生中の場合は処理しない
     }
 
-    var audioElement1 = document.getElementById("audio5");
-    audioElement1.play();
     
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
         var audioElements = [
+          "audio5",
             "Aaudio" + passwordInput.charAt(0),
             "Aaudio" + passwordInput.charAt(1),
             "Aaudio" + passwordInput.charAt(2),
