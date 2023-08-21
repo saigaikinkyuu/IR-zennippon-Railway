@@ -217,14 +217,20 @@ function playAudio(audioId) {
 function submitFormF() {
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
+      console.log('実行1')
     
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
         playAudio("Aaudio" + passwordInput.charAt(0));
+      console.log('実行2')
         playAudio("Aaudio" + passwordInput.charAt(1));
+      console.log('実行3')
         playAudio("Aaudio" + passwordInput.charAt(2));
+      console.log('実行4')
         playAudio("Aaudio" + passwordInput.charAt(3));
+      console.log('実行5')
         playAudio("Aaudio" + passwordInput.charAt(4));
+      console.log('実行6')
     }
 }
 </script>
