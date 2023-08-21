@@ -544,10 +544,11 @@ function playNextAudio() {
           cell4.textContent = timeString2;
           cell5.textContent = changeline;
 
+          if (kind === 1) {
           // 時間の計算
           if (i === 0) {
-            currentTime.setMinutes(currentTime2.getMinutes());
-            currentTime2.setMinutes(currentTime2.getMinutes());
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
           } else if (i === 1) {
             currentTime.setMinutes(currentTime2.getMinutes() + 6);
             currentTime2.setMinutes(currentTime2.getMinutes() + 7);
@@ -584,6 +585,141 @@ function playNextAudio() {
           } else if (i === 12) {
             currentTime.setMinutes(currentTime2.getMinutes() + 10);
             currentTime2.setMinutes(currentTime2.getMinutes() + 11);
+          } else if (i === 13) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 13);
+          }
+        }else if (kind === 2) {
+          // 時間の計算
+          if (i === 0) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 1) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 7);
+          } else if (i === 2) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 3) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 7);
+          } else if (i === 4) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 5) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 3);
+          } else if (i === 6) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 2);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 2);
+          } else if (i === 7) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 7);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 8);
+          } else if (i === 8) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 7);
+          } else if (i === 9) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 16);
+          } else if (i === 10) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 10);
+          } else if (i === 11) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 9);
+          } else if (i === 12) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 10);
+          } else if (i === 13) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 13);
+          }
+        }else if (kind === 3) {
+          // 時間の計算
+          if (i === 0) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 1) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 6);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 7);
+          } else if (i === 2) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 3);
+          } else if (i === 3) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 4) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 5) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 3);
+          } else if (i === 6) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 2);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 2);
+          } else if (i === 7) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 7);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 8);
+          } else if (i === 8) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 5);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 9) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 9);
+          } else if (i === 10) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 9);
+          } else if (i === 11) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 7);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 8);
+          } else if (i === 12) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 9);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 10);
+          } else if (i === 13) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 12);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 13);
+          }
+        }else if (kind === 4) {
+          // 時間の計算
+          if (i === 0) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 1) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 2) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 3);
+          } else if (i === 3) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 4) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 4);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 4);
+          } else if (i === 5) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 3);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 3);
+          } else if (i === 6) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 2);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 2);
+          } else if (i === 7) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 7);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 8);
+          } else if (i === 8) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 5);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 5);
+          } else if (i === 9) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 9);
+          } else if (i === 10) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 10);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 10);
+          } else if (i === 11) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 7);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 7);
+          } else if (i === 12) {
+            currentTime.setMinutes(currentTime2.getMinutes() + 8);
+            currentTime2.setMinutes(currentTime2.getMinutes() + 9);
           } else if (i === 13) {
             currentTime.setMinutes(currentTime2.getMinutes() + 12);
             currentTime2.setMinutes(currentTime2.getMinutes() + 13);
