@@ -209,28 +209,34 @@
     </tbody>
   </table>
       <script>
-function playAudio(audioId) {
+function playAudio(audioId, nextAudioId) {
     var audioElement = document.getElementById(audioId);
     audioElement.play();
+
+    audioElement.onended = function() {
+        if (nextAudioId) {
+            playAudio(nextAudioId);
+        }
+    };
 }
 
 function submitFormF() {
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
-      console.log('実行1')
     
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-        playAudio("Aaudio" + passwordInput.charAt(0));
-      console.log('実行2')
-        playAudio("Aaudio" + passwordInput.charAt(1));
-      console.log('実行3')
-        playAudio("Aaudio" + passwordInput.charAt(2));
-      console.log('実行4')
-        playAudio("Aaudio" + passwordInput.charAt(3));
-      console.log('実行5')
-        playAudio("Aaudio" + passwordInput.charAt(4));
-      console.log('実行6')
+        var firstChar = passwordInput.charAt(0);
+        var secondChar = passwordInput.charAt(1);
+        var thirdChar = passwordInput.charAt(2);
+        var fourthChar = passwordInput.charAt(3);
+        var fifthChar = passwordInput.charAt(4);
+
+        playAudio("Aaudio" + firstChar, "Aaudio" + secondChar);
+        playAudio("Aaudio" + secondChar, "Aaudio" + thirdChar);
+        playAudio("Aaudio" + thirdChar, "Aaudio" + fourthChar);
+        playAudio("Aaudio" + fourthChar, "Aaudio" + fifthChar);
+        playAudio("Aaudio" + fifthChar);
     }
 }
 </script>
