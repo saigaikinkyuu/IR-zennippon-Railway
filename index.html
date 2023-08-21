@@ -209,35 +209,39 @@
     </tbody>
   </table>
       <script>
-var passwordInput;
-var currentIndex = 0;
-var audioElements = [];
+var audioQueue = []; // オーディオ再生キュー
 
 function playAudio(audioId) {
     var audioElement = document.getElementById(audioId);
     audioElement.play();
-
-    audioElement.onended = function() {
-        currentIndex++;
-        if (currentIndex < audioElements.length) {
-            playAudio(audioElements[currentIndex]);
-        }
-    };
 }
 
 function submitFormF() {
     var audioElement1 = document.getElementById("audio5");
     audioElement1.play();
     
-    passwordInput = document.getElementById("passwordInput").value;
+    var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-        audioElements.push("Aaudio" + passwordInput.charAt(0));
-        audioElements.push("Aaudio" + passwordInput.charAt(1));
-        audioElements.push("Aaudio" + passwordInput.charAt(2));
-        audioElements.push("Aaudio" + passwordInput.charAt(3));
-        audioElements.push("Aaudio" + passwordInput.charAt(4));
+        var audioElements = [
+            "Aaudio" + passwordInput.charAt(0),
+            "Aaudio" + passwordInput.charAt(1),
+            "Aaudio" + passwordInput.charAt(2),
+            "Aaudio" + passwordInput.charAt(3),
+            "Aaudio" + passwordInput.charAt(4)
+        ];
 
-        playAudio(audioElements[currentIndex]);
+        // キューに音声ファイルを追加
+        audioQueue = audioQueue.concat(audioElements);
+
+        // 最初の音声を再生
+        playNextAudio();
+    }
+}
+
+function playNextAudio() {
+    if (audioQueue.length > 0) {
+        var nextAudio = audioQueue.shift(); // キューの先頭から音声ファイルを取得して削除
+        playAudio(nextAudio);
     }
 }
 </script>
