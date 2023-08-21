@@ -209,194 +209,54 @@
     </tbody>
   </table>
       <script>
-        function submitFormF() {
-        var audioElement1 = document.getElementById("audio5");
-        audioElement1.play();
-          submitForm1();
-        }
-      </script>
-      <script>
-        function submitForm1() {
+function playAudio(audioId) {
+    var audioElement = document.getElementById(audioId);
+    audioElement.play();
+}
+
+function submitFormF() {
+    var audioElement1 = document.getElementById("audio5");
+    audioElement1.play();
+    submitForm1();
+}
+
+function submitForm1() {
+    playAudio(getAudioIdByChar(0));
+    submitForm2();
+}
+
+function submitForm2() {
+    playAudio(getAudioIdByChar(1));
+    submitForm3();
+}
+
+function submitForm3() {
+    playAudio(getAudioIdByChar(2));
+    submitForm4();
+}
+
+function submitForm4() {
+    playAudio(getAudioIdByChar(3));
+    submitForm5();
+}
+
+function submitForm5() {
+    playAudio(getAudioIdByChar(4));
+}
+
+function getAudioIdByChar(charIndex) {
     var passwordInput = document.getElementById("passwordInput").value;
     if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(0).toUpperCase();
-        console.log(fChar);
+        var fChar = passwordInput.charAt(charIndex).toUpperCase();
+        var audioId = "Aaudio" + fChar;
         
-        var audioElement = document.getElementById("Aaudio1");
-        
-        if (fChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-        
-        audioElement.play();
-      submitForm2()
+        return audioId;
+    }
 }
-        }
-      </script>
-      <script>
-        function submitForm2() {
-    var passwordInput = document.getElementById("passwordInput").value;
-    if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(1).toUpperCase();
-        console.log(fChar);
-        
-        var audioElement = document.getElementById("Aaudio1");
-        
-        if (fChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-        
-        audioElement.play();
-      submitForm3();
-}
-        }
-      </script>
-      <script>
-        function submitForm3() {
-    var passwordInput = document.getElementById("passwordInput").value;
-    if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(2).toUpperCase();
-        console.log(fChar);
-        
-        var audioElement = document.getElementById("Aaudio1");
-        
-        if (fChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-        
-        audioElement.play();
-      submitForm4();
-}
-        }
-      </script>
-      <script>
-        function submitForm4() {
-    var passwordInput = document.getElementById("passwordInput").value;
-    if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(3).toUpperCase();
-        console.log(fChar);
-        
-        var audioElement = document.getElementById("Aaudio1");
-        
-        if (fChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-        
-        audioElement.play();
-      submitForm5();
-}
-        }
-      </script>
-      <script>
-        function submitForm5() {
-    var passwordInput = document.getElementById("passwordInput").value;
-    if (passwordInput.length >= 5) {
-        var fChar = passwordInput.charAt(4).toUpperCase();
-        console.log(fChar);
-        
-        var audioElement = document.getElementById("Aaudio1");
-        
-        if (fChar === "0") {
-            audioElement = document.getElementById("Aaudio0");
-        } else if (fChar === "1") {
-            audioElement = document.getElementById("Aaudio1");
-        } else if (fChar === "2") {
-            audioElement = document.getElementById("Aaudio2");
-        } else if (fChar === "3") {
-            audioElement = document.getElementById("Aaudio3");
-        } else if (fChar === "4") {
-            audioElement = document.getElementById("Aaudio4");
-        } else if (fChar === "5") {
-            audioElement = document.getElementById("Aaudio5");
-        } else if (fChar === "6") {
-            audioElement = document.getElementById("Aaudio6");
-        } else if (fChar === "7") {
-            audioElement = document.getElementById("Aaudio7");
-        } else if (fChar === "8") {
-            audioElement = document.getElementById("Aaudio8");
-        } else if (fChar === "9") {
-            audioElement = document.getElementById("Aaudio9");
-        }
-        
-        audioElement.play();
-}
-        }
-      </script>
+
+</script>
   <script>
     function submitForm() {
-      submitFormF();
       const passwordInput = document.getElementById('passwordInput');
       const tableBody = document.getElementById('tableBody');
       const passwordValue = passwordInput.value;
