@@ -789,15 +789,17 @@ function playNextAudio() {
     }
   </script>
   <script>
-    // 新たに追加した部分
-    const elementsA = document.querySelectorAll("#time1");
-    const elementsB = document.querySelectorAll("#time2");
-
     // 背景色を比較して変更する関数
     function compareAndHighlight() {
-      for (let i = 0; i < elementsA.length; i++) {
-        const elementA = elementsA[i];
-        const elementB = elementsB[i];
+      // idがtime1の要素とtime2の要素をそれぞれ取得
+      const time1Elements = document.querySelectorAll("#time1");
+      const time2Elements = document.querySelectorAll("#time2");
+
+      // 要素の数だけループ
+      for (let i = 0; i < time1Elements.length; i++) {
+        const elementA = time1Elements[i];
+        const elementB = time2Elements[i];
+
         const valueA = elementA.textContent;
         const valueB = elementB.textContent;
 
