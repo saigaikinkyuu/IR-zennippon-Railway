@@ -225,8 +225,10 @@ function C() {
   // 関数Aと関数Bを実行するかをランダムに決定
   const randomValue = Math.random(); // 0から1までのランダムな数値
   if (randomValue < 0.1) {
+    console.log(randomValue)
     A();
   } else if (randomValue < 0.2) {
+    console.log(randomValue)
     B();
   } else {
     console.log('何も実行されませんでした')
