@@ -789,20 +789,25 @@ function playNextAudio() {
     }
   </script>
   <script>
-    const elementA = document.getElementById("time1");
-    const elementB = document.getElementById("time2");
+    // 新たに追加した部分
+    const elementsA = document.querySelectorAll("#time1");
+    const elementsB = document.querySelectorAll("#time2");
 
     // 背景色を比較して変更する関数
     function compareAndHighlight() {
-      const valueA = elementA.textContent;
-      const valueB = elementB.textContent;
+      for (let i = 0; i < elementsA.length; i++) {
+        const elementA = elementsA[i];
+        const elementB = elementsB[i];
+        const valueA = elementA.textContent;
+        const valueB = elementB.textContent;
 
-      if (valueA === valueB) {
-        elementA.classList.add("highlight");
-        elementB.classList.add("highlight");
-      } else {
-        elementA.classList.remove("highlight");
-        elementB.classList.remove("highlight");
+        if (valueA === valueB) {
+          elementA.classList.add("highlight");
+          elementB.classList.add("highlight");
+        } else {
+          elementA.classList.remove("highlight");
+          elementB.classList.remove("highlight");
+        }
       }
     }
 
