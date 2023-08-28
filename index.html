@@ -211,36 +211,51 @@
       <!-- 表の行はここに追加されます -->
     </tbody>
   </table>
-      <script>function A() {
-  console.log('A実行');
-}
+  <button onclick="C1()">開始</button>
+  <button onclick="D1()">終了</button>
 
-function B() {
-  console.log('B実行');
-}
+  <script>
+    let intervalId;
+    let isRunning = false;
 
-function C() {
-  console.log('C実行');
+    function C1() {
+      if (isRunning) return;
+      isRunning = true;
+      intervalId = setInterval(randomFunction, 5 * 60 * 1000);
+    }
 
-  // 関数Aと関数Bを実行するかをランダムに決定
-  const randomValue = Math.random(); // 0から1までのランダムな数値
-  if (randomValue < 0.1) {
-    console.log(randomValue)
-    A();
-  } else if (randomValue < 0.2) {
-    console.log(randomValue)
-    B();
-  } else {
-    console.log('何も実行されませんでした')
-  }
-}
+    function D1() {
+      clearInterval(intervalId);
+      isRunning = false;
+    }
 
-// 最初に関数Cを実行
-C();
+    function randomFunction() {
+      const randomNumber = Math.random();
 
-// 5分ごとに関数Cを実行
-setInterval(C, 10 * 1000); // 5分 = 5 * 60 * 1000 ミリ秒
-</script>
+      if (randomNumber < 0.1) {
+        console.log(randomNumber)
+        functionA();
+      } else if (randomNumber < 0.2) {
+        console.log(randomNumber)
+        functionB();
+      }else{
+        console.log('実行なし')
+    }
+      // 8割の確率で何も実行しない
+
+      console.log("ランダム実行:", randomNumber);
+    }
+
+    function functionA() {
+      console.log("関数Aを実行");
+      // 関数Aの処理をここに記述
+    }
+
+    function functionB() {
+      console.log("関数Bを実行");
+      // 関数Bの処理をここに記述
+    }
+  </script>
       <script>
 var audioQueue = []; // オーディオ再生キュー
 var isPlaying = false; // 再生中かどうかのフラグ
