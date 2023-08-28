@@ -197,13 +197,18 @@
   <audio id="Aaudio9" src="番号9.mp3"></audio>
   <audio id="Aaudio0" src="番号0.mp3"></audio>
   <audio id="AaudioE" src="番号error.mp3"></audio>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
   <table border="1" style="color: white;">
     <thead>
       <tr>
         <th>駅名</th>
         <th>発着番線</th>
-        <th>時間(着)</th>
-        <th>時間(発)</th>
+        <th id="time1">時間(着)</th>
+        <th id="time2">時間(発)</th>
         <th>乗換/通待</th>
       </tr>
     </thead>
@@ -588,6 +593,9 @@ function playNextAudio() {
           cell3.textContent = timeString;
           cell4.textContent = timeString2;
           cell5.textContent = changeline;
+        // 新たに追加した部分
+        cell3.setAttribute("id", "time1");
+        cell4.setAttribute("id", "time2");
 
           if (kind === '1') {
           // 時間の計算
@@ -779,6 +787,30 @@ function playNextAudio() {
       const minutes = String(date.getMinutes()).padStart(2, '0');
       return hours + ':' + minutes;
     }
+  </script>
+  <script>
+    const elementA = document.getElementById("time1");
+    const elementB = document.getElementById("time2");
+
+    // 背景色を比較して変更する関数
+    function compareAndHighlight() {
+      const valueA = elementA.textContent;
+      const valueB = elementB.textContent;
+
+      if (valueA === valueB) {
+        elementA.classList.add("highlight");
+        elementB.classList.add("highlight");
+      } else {
+        elementA.classList.remove("highlight");
+        elementB.classList.remove("highlight");
+      }
+    }
+
+    // 定期的に比較を行う
+    setInterval(compareAndHighlight, 1000); // 1秒ごとに比較
+
+    // 初回実行
+    compareAndHighlight();
   </script>
   <script>
     var button1 = document.getElementById('button1');
