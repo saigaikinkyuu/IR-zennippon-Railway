@@ -212,6 +212,33 @@
     </tbody>
   </table>
       <script>
+function A(){
+  console.log('A実行');
+}
+
+function B(){
+  console.log('B実行');
+}
+
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function executeRandomFunction() {
+  const randomValue = getRandomNumber(0, 1); // ランダムな0から1の値を取得
+  if (randomValue < 0.1) {
+    A(); // 1割の確率で関数Aを実行
+  } else if (randomValue < 0.2) {
+    B(); // 1割の確率で関数Bを実行
+  } else {
+    // それ以外の場合は何も実行しない
+  }
+}
+
+// 5分ごとに実行するタイマーを設定
+setInterval(executeRandomFunction, 5 * 60 * 1000); // 5分 = 5 * 60 * 1000 ミリ秒
+</script>
+      <script>
 var audioQueue = []; // オーディオ再生キュー
 var isPlaying = false; // 再生中かどうかのフラグ
 
