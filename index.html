@@ -251,7 +251,7 @@
   <audio id="AaudioE" src="番号error.mp3"></audio>
   <style>
     .highlight {
-      background-color: yellow;
+      background-color: #ff7b00;
     }
   </style>
   <table border="1" style="color: white;">
@@ -391,7 +391,7 @@ function playNextAudio() {
         let currentTime = new Date();
         let currentTime2 = new Date();
         currentTime.setHours(parseInt(hour));
-        currentTime.setMinutes(parseInt(minutes));
+        currentTime.setMinutes(parseInt(minutes)-15);
         currentTime2.setHours(parseInt(hour));
         currentTime2.setMinutes(parseInt(minutes));
 
