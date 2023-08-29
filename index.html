@@ -101,11 +101,62 @@
 
   <!-- パスワード入力フォーム -->
   <div id="password-form" style="display: block; margin-top: 0px;">
-    <h2 style="color: white;">列車番号を入力してください</h2>
     <input type="password" id="passwordInput" oninput="updateKind()">
+    <label class="nice-label" for="Username">列車番号</label>
     <br>
     <button id="submit-button" onclick="submitFormF(); submitForm();">送信</button>
   </div>
+  <script>
+    $(document).ready(function(){
+   $('#passwordInput').blur(function() {
+        if($(this).val().length === 0){
+          $('.nice-label').removeClass("focus");
+        }
+        else { return; }
+      })
+      .focus(function() {
+        $('.nice-label').addClass("focus")
+      });
+});
+  </script>
+  <style>
+#password-form{
+  position: relative;
+  width: 500px;
+  height: 100px;
+ 
+  margin: 0 auto;
+}
+    
+.nice-label{
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 16px;
+  color: #a0a0a0;
+  transition: all 0.25s ease;
+  
+  &.focus{
+    top: -25px;
+    left: 5px;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+
+#passwordInput{
+  position: relative;
+  display: block;
+  width: 500px;
+  margin-top: 50px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #a0a0a0;
+  outline: none;
+}
+  </style>
 
   <!-- 非表示のコンテンツ -->
   <div id="hidden-content" style="display: block;">
